@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "EveryTime",
+    "slug": "EveryTime",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "EveryTime"
+}
