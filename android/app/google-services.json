@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "755014108129",
+    "project_id": "everytime-a0e49",
+    "storage_bucket": "everytime-a0e49.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755014108129:android:9c39c2a8713da19a6a88a0",
+        "android_client_info": {
+          "package_name": "com.everytime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755014108129-nsdaaa1n7usptksa83uc3bpsncmo4iie.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.everytime",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "755014108129-gj21n40no02l59mn3fk08iuskpa0olsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxG_ElGMUp7kveQmlfzICujGmYfZvkQpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755014108129-gj21n40no02l59mn3fk08iuskpa0olsn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
