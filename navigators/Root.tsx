@@ -3,7 +3,7 @@ import React from "react";
 import Stack from "./Stack";
 import Tabs from "./Tabs";
 
-const Nav = createNativeStackNavigator();
+const Nav = createNativeStackNavigator<RootNavigatorParamList>();
 
 function Root() {
   return (
@@ -17,3 +17,8 @@ function Root() {
 }
 
 export default Root;
+
+type RootNavigatorParamList = {
+  Tabs: undefined;
+  Stack: undefined;
+};
