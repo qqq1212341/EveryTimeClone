@@ -1,9 +1,7 @@
 import styled from "styled-components/native";
 
-export const StyledHomeContainer = styled.View`
+export const StyledHomeContainer = styled.ScrollView`
   flex: 1;
-  align-items: center;
-  justify-content: center;
   background-color: white;
 `;
 

@@ -15,7 +15,7 @@ interface HomeHCardProps {
   topText: string;
   bottomText: string;
   bottomTextColor: string;
-  buttonText: string;
+  buttonText?: string;
 }
 
 const HomeHCard: React.FC<HomeHCardProps> = ({
@@ -34,12 +34,14 @@ const HomeHCard: React.FC<HomeHCardProps> = ({
           <StyledHCardInnerBottomText bottomTextColor={bottomTextColor}>
             {bottomText}
           </StyledHCardInnerBottomText>
-          <StyledHCardInnerButton>
-            <StyledHCardInnerButtonText>
-              {buttonText}&nbsp;
-              <AntDesign name="right" size={12} color="rgb(188, 188, 188)" />
-            </StyledHCardInnerButtonText>
-          </StyledHCardInnerButton>
+          {buttonText && (
+            <StyledHCardInnerButton>
+              <StyledHCardInnerButtonText>
+                {buttonText}&nbsp;
+                <AntDesign name="right" size={12} color="rgb(188, 188, 188)" />
+              </StyledHCardInnerButtonText>
+            </StyledHCardInnerButton>
+          )}
         </StyledHCardInnerRightContainer>
       </StyledHCardInnerContainer>
     </StyledHCardContainer>

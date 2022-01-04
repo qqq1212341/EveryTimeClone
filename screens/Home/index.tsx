@@ -8,10 +8,10 @@ import {
   StyledHomeHeaderButtonText,
   StyledHomeHeaderContainer,
   StyledHomeHeaderTopText,
-  StyledHomeText,
 } from "./styled";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import HomeHCardList from "../../components/HomeHCardList";
+import HomeHCircleList from "../../components/HomeHCircle";
 
 const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
   useEffect(() => {
@@ -45,8 +45,10 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
     });
   }, []);
   return (
+    // stickheader로 header 따라 다녀야 함
     <StyledHomeContainer>
       <HomeHCardList />
+      <HomeHCircleList />
     </StyledHomeContainer>
   );
 };

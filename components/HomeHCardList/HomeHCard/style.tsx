@@ -11,6 +11,7 @@ export const StyledHCardContainer = styled.View`
   width: 280px;
   height: 180px;
   margin-right: 10px;
+  margin-left: 10px;
 `;
 export const StyledHCardInnerContainer = styled.View`
   flex-direction: row;

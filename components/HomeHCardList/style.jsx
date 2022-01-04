@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
 
-export const StyledHCardScrollView = styled.ScrollView`
-  padding: 20px;
-  padding-left: 30px;
+export const StyledHCardScrollView = styled.FlatList`
+  margin-top: 20px;
 `;

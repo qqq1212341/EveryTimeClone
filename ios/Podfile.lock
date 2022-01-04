@@ -19,6 +19,8 @@ PODS:
   - EXSplashScreen (0.14.1):
     - ExpoModulesCore
     - React-Core
+  - EXWebBrowser (10.1.0):
+    - ExpoModulesCore
   - FBLazyVector (0.64.3)
   - FBReactNativeSpec (0.64.3):
     - RCT-Folly (= 2020.01.13.00)
@@ -354,6 +356,7 @@ DEPENDENCIES:
   - Expo (from `../node_modules/expo/ios`)
   - ExpoModulesCore (from `../node_modules/expo-modules-core/ios`)
   - EXSplashScreen (from `../node_modules/expo-splash-screen/ios`)
+  - EXWebBrowser (from `../node_modules/expo-web-browser/ios`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/React/FBReactNativeSpec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
@@ -420,6 +423,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-modules-core/ios"
   EXSplashScreen:
     :path: "../node_modules/expo-splash-screen/ios"
+  EXWebBrowser:
+    :path: "../node_modules/expo-web-browser/ios"
   FBLazyVector:
     :path: "../node_modules/react-native/Libraries/FBLazyVector"
   FBReactNativeSpec:
@@ -494,6 +499,7 @@ SPEC CHECKSUMS:
   Expo: 5f9812539b12998a813315ea8036971c9b56a9e7
   ExpoModulesCore: d04e519b3e8e21523b195bb21a40144e30f1e163
   EXSplashScreen: 7872675b95bb07c25f922b3d3dfae70c76fb5a00
+  EXWebBrowser: 37388663fa51cbfc883de2244931a5182d948e5f
   FBLazyVector: c71c5917ec0ad2de41d5d06a5855f6d5eda06971
   FBReactNativeSpec: 3a611d686b88752ed8ff135f2282ac0cadc91e84
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
