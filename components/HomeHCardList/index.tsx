@@ -53,7 +53,7 @@ const HomeHCardList: React.FC = () => {
       data={flatListData}
       keyExtractor={(item: any) => item.index + ""}
       horizontal
-      decelerationRate="fast"
+      decelerationRate="normal"
       showsHorizontalScrollIndicator={false}
       pagingEnabled
       renderItem={({ item }) => (

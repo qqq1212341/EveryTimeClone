@@ -11,7 +11,9 @@ import {
 } from "./style";
 import { AntDesign } from "@expo/vector-icons";
 import firestore from "@react-native-firebase/firestore";
-import { Text, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootNavigatorParamList } from "../../navigators/Root";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -26,14 +28,20 @@ const userBulletinList = [
   { name: "동아리·학회", id: "Circles" },
 ];
 
+type DetailScreenProp = NativeStackNavigationProp<
+  RootNavigatorParamList,
+  "Stack"
+>;
+
 const HomeFavBulletin: React.FC = () => {
   const [postArray, setPostArray] = useState<string[]>([]);
+  const navigation = useNavigation<DetailScreenProp>();
 
   useEffect(() => {
     async function loadPostArray() {
       let PostArray: string[] = [];
       await Promise.all(
-        userBulletinList.map(async (Bulletin, index) => {
+        userBulletinList.map(async (Bulletin): Promise<void> => {
           const firstPost = await firestore()
             .collection("Post")
             .doc("NormalBulletin")
@@ -42,9 +50,6 @@ const HomeFavBulletin: React.FC = () => {
             .limit(1)
             .get();
           PostArray.push(firstPost.docs[0].data().Title);
-          // firstPost.forEach((snapshot) => {
-          //   // console.log(snapshot.data());
-          // });
         })
       );
       setPostArray(PostArray);
@@ -55,7 +60,10 @@ const HomeFavBulletin: React.FC = () => {
   const renderPostArray = () => {
     if (postArray) {
       return postArray.map((post, index) => (
-        <StyledFavBottomContainer key={`Bottom_${index}`}>
+        <StyledFavBottomContainer
+          onPress={() => goToDetail(index)}
+          key={`Bottom_${index}`}
+        >
           <StyledFavBottomTitle>
             {userBulletinList[index].name}
           </StyledFavBottomTitle>
@@ -63,6 +71,17 @@ const HomeFavBulletin: React.FC = () => {
         </StyledFavBottomContainer>
       ));
     }
+  };
+
+  const goToDetail = (index: number) => {
+    const bullentinName = userBulletinList[index].name;
+    navigation.navigate("Stack", {
+      screen: "Detail",
+      params: {
+        index,
+        bullentinName,
+      },
+    });
   };
 
   return (

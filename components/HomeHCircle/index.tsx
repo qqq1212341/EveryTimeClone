@@ -4,7 +4,13 @@ import { StyledHCircleScrollView } from "./style";
 
 const HomeHCircleList = () => {
   return (
-    <StyledHCircleScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <StyledHCircleScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{
+        paddingRight: 30,
+      }}
+    >
       <HomeHCircle
         icon="home"
         title="학교 홈"

@@ -98,7 +98,8 @@ const Tabs: React.FC = () => {
 
 export default Tabs;
 
-type TabNavigatorParamList = {
+export type TabNavigatorParamList = {
+  // undifined means no parameter
   Home: undefined;
   TimeTable: undefined;
   BulletinList: undefined;
