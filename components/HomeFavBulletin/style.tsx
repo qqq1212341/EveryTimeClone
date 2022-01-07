@@ -1,11 +1,5 @@
 import styled from "styled-components/native";
 
-export const StyledFavContainer = styled.View`
-  margin: 10px 10px;
-  border-color: #d0d0d0;
-  border-width: 0.5px;
-  border-radius: 15px;
-`;
 export const StyledFavTopContainer = styled.View`
   display: flex;
   flex-direction: row;
@@ -28,8 +22,13 @@ export const StyledFavTopMoreText = styled.Text`
 `;
 export const StyledFavBottomContainer = styled.TouchableOpacity`
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   padding: 11px 15px;
   align-items: center;
+`;
+export const StyledFavBottomTextContainer = styled.View`
+  flex-direction: row;
 `;
 export const StyledFavBottomTitle = styled.Text`
   font-size: 16px;
@@ -39,4 +38,8 @@ export const StyledFavBottomPost = styled.Text`
   margin-left: 10px;
   font-weight: 200;
   font-size: 13px;
+`;
+export const StyledFavBottomImage = styled.Image`
+  width: 10px;
+  height: 10px;
 `;

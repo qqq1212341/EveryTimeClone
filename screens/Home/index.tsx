@@ -14,6 +14,7 @@ import HomeHCardList from "../../components/HomeHCardList";
 import HomeHCircleList from "../../components/HomeHCircle";
 import HomeSquareAd from "../../components/HomeSqaureAd";
 import HomeFavBulletin from "../../components/HomeFavBulletin";
+import HomeTrending from "../../components/HomeTrending";
 
 const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
   useEffect(() => {
@@ -53,6 +54,7 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
       <HomeHCircleList />
       <HomeSquareAd />
       <HomeFavBulletin />
+      <HomeTrending />
     </StyledHomeContainer>
   );
 };

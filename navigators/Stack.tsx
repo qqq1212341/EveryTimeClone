@@ -10,7 +10,6 @@ function Stack() {
     <Nav.Navigator
       screenOptions={{
         headerShown: true,
-        headerLeft: () => <Button title="CLICK!" />,
       }}
     >
       <Nav.Screen name="Detail" component={DetailBulletin} />

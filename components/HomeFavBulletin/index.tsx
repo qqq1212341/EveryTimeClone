@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {
   StyledFavBottomContainer,
+  StyledFavBottomImage,
   StyledFavBottomPost,
+  StyledFavBottomTextContainer,
   StyledFavBottomTitle,
-  StyledFavContainer,
   StyledFavTopContainer,
   StyledFavTopMore,
   StyledFavTopMoreText,
@@ -14,6 +15,8 @@ import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootNavigatorParamList } from "../../navigators/Root";
+import { View } from "react-native";
+import { StyledBorderContainer } from "../../Style/commonStyle";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -33,13 +36,20 @@ type DetailScreenProp = NativeStackNavigationProp<
   "Stack"
 >;
 
+interface postArrayProperty {
+  isNew: boolean;
+  title: string;
+}
+
 const HomeFavBulletin: React.FC = () => {
-  const [postArray, setPostArray] = useState<string[]>([]);
+  const [postArray, setPostArray] = useState<postArrayProperty[]>([]);
   const navigation = useNavigation<DetailScreenProp>();
 
   useEffect(() => {
     async function loadPostArray() {
-      let PostArray: string[] = [];
+      const date = new Date();
+      const currenDate = Math.round(date.getTime() / 1000);
+      let PostArray: postArrayProperty[] = [];
       await Promise.all(
         userBulletinList.map(async (Bulletin): Promise<void> => {
           const firstPost = await firestore()
@@ -49,7 +59,18 @@ const HomeFavBulletin: React.FC = () => {
             .orderBy("Date", "desc")
             .limit(1)
             .get();
-          PostArray.push(firstPost.docs[0].data().Title);
+          // 1 day == 86400
+          if (currenDate - firstPost.docs[0].data().Date.seconds < 86400) {
+            PostArray.push({
+              isNew: true,
+              title: firstPost.docs[0].data().Title,
+            });
+          } else {
+            PostArray.push({
+              isNew: false,
+              title: firstPost.docs[0].data().Title,
+            });
+          }
         })
       );
       setPostArray(PostArray);
@@ -64,10 +85,17 @@ const HomeFavBulletin: React.FC = () => {
           onPress={() => goToDetail(index)}
           key={`Bottom_${index}`}
         >
-          <StyledFavBottomTitle>
-            {userBulletinList[index].name}
-          </StyledFavBottomTitle>
-          <StyledFavBottomPost>{post}</StyledFavBottomPost>
+          <StyledFavBottomTextContainer>
+            <StyledFavBottomTitle>
+              {userBulletinList[index].name}
+            </StyledFavBottomTitle>
+            <StyledFavBottomPost>{post.title}</StyledFavBottomPost>
+          </StyledFavBottomTextContainer>
+          {post.isNew ? (
+            <StyledFavBottomImage source={require("../../img/nIcon.png")} />
+          ) : (
+            <View />
+          )}
         </StyledFavBottomContainer>
       ));
     }
@@ -85,7 +113,7 @@ const HomeFavBulletin: React.FC = () => {
   };
 
   return (
-    <StyledFavContainer>
+    <StyledBorderContainer>
       <StyledFavTopContainer>
         <StyledFavTopText>즐겨찾는 게시판</StyledFavTopText>
         <StyledFavTopMore>
@@ -95,7 +123,7 @@ const HomeFavBulletin: React.FC = () => {
         </StyledFavTopMore>
       </StyledFavTopContainer>
       {renderPostArray()}
-    </StyledFavContainer>
+    </StyledBorderContainer>
   );
 };
 

@@ -5,3 +5,4 @@ export const DetailBulletinContainer = styled.View`
   justify-content: center;
 `;
 export const DetailBulletinText = styled.Text``;
+export const DetailHeaderIconContainer = styled.TouchableOpacity``;

@@ -1,9 +1,13 @@
 import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect } from "react";
-import { Button } from "react-native";
 import { StackNavigatorParamList } from "../../navigators/Stack";
-import { DetailBulletinContainer, DetailBulletinText } from "./style";
+import {
+  DetailBulletinContainer,
+  DetailBulletinText,
+  DetailHeaderIconContainer,
+} from "./style";
+import { AntDesign } from "@expo/vector-icons";
 
 interface DetailScreenProps {
   navigation: NativeStackNavigationProp<StackNavigatorParamList, "Detail">;
@@ -19,7 +23,11 @@ const DetailBulletin: React.FC<DetailScreenProps> = ({
   useEffect(() => {
     setOptions({
       title: bullentinName,
-      headerLeft: () => <Button title="<-" onPress={goBack} />,
+      headerLeft: () => (
+        <DetailHeaderIconContainer onPress={goBack}>
+          <AntDesign name="arrowleft" size={24} color="black" />
+        </DetailHeaderIconContainer>
+      ),
     });
   }, []);
 
