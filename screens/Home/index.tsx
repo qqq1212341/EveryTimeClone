@@ -12,9 +12,10 @@ import {
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import HomeHCardList from "../../components/HomeHCardList";
 import HomeHCircleList from "../../components/HomeHCircle";
-import HomeSquareAd from "../../components/HomeSqaureAd";
 import HomeFavBulletin from "../../components/HomeFavBulletin";
 import HomeTrending from "../../components/HomeTrending";
+import HomeRectangleAd from "../../components/HomeRectangleAd";
+import HomeSquareAd from "../../components/HomeSquareAd";
 
 const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
   useEffect(() => {
@@ -52,9 +53,10 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
     <StyledHomeContainer>
       <HomeHCardList />
       <HomeHCircleList />
-      <HomeSquareAd />
+      <HomeRectangleAd />
       <HomeFavBulletin />
       <HomeTrending />
+      <HomeSquareAd />
     </StyledHomeContainer>
   );
 };

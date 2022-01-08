@@ -11,3 +11,9 @@ export const StyledBorderContainer = styled.View`
   border-width: 0.5px;
   border-radius: 15px;
 `;
+
+export const StyledTopText = styled.Text`
+  font-weight: 700;
+  font-size: 19px;
+  margin-left: 15px;
+`;

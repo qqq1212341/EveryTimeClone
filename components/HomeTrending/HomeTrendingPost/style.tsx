@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 
 export const StyledTrendingContainer = styled.TouchableOpacity`
-  padding: 10px;
+  padding: 15px;
   padding-left: 15px;
 `;
 export const StyledTrendingTop = styled.View`
@@ -14,13 +14,13 @@ export const StyledTrendingTopLeft = styled.View`
   align-items: center;
 `;
 export const StyledTrendingTopProfile = styled.Image`
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   border-radius: 5px;
 `;
 export const StyledTrendingTopWriter = styled.Text`
   font-weight: 600;
-  font-size: 17px;
+  font-size: 16px;
   margin-left: 7px;
 `;
 export const StyledTrendingTopTimeline = styled.Text`
@@ -52,6 +52,6 @@ export const StyledTrendingBottomRightLike = styled.Text`
   color: #ff3939;
 `;
 export const StyledTrendingBottomRightComment = styled.Text`
-  margin-left: 2px;
-  color: #4646f2;
+  margin-left: 4px;
+  color: #8383f5;
 `;

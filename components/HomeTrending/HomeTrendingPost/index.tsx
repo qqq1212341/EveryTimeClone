@@ -35,11 +35,11 @@ const HomeTrendingPost = () => {
         <StyledTrendingBottomRight>
           <StyledTrendingBottomRightLike>
             <AntDesign name="like2" size={14} color="#ff3939" />
-            80
+            &nbsp;80
           </StyledTrendingBottomRightLike>
           <StyledTrendingBottomRightComment>
-            <EvilIcons name="comment" size={14} color="#4646f2" />
-            50
+            <EvilIcons name="comment" size={14} color="#8383f5" />
+            &nbsp;50
           </StyledTrendingBottomRightComment>
         </StyledTrendingBottomRight>
       </StyledTrendingBottom>

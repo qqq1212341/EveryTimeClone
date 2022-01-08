@@ -8,7 +8,6 @@ import {
   StyledFavTopContainer,
   StyledFavTopMore,
   StyledFavTopMoreText,
-  StyledFavTopText,
 } from "./style";
 import { AntDesign } from "@expo/vector-icons";
 import firestore from "@react-native-firebase/firestore";
@@ -16,7 +15,7 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootNavigatorParamList } from "../../navigators/Root";
 import { View } from "react-native";
-import { StyledBorderContainer } from "../../Style/commonStyle";
+import { StyledBorderContainer, StyledTopText } from "../../Style/commonStyle";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -112,11 +111,17 @@ const HomeFavBulletin: React.FC = () => {
     });
   };
 
+  const goToBulletinList = () => {
+    navigation.navigate("Tabs", {
+      screen: "BulletinList",
+    });
+  };
+
   return (
     <StyledBorderContainer>
       <StyledFavTopContainer>
-        <StyledFavTopText>즐겨찾는 게시판</StyledFavTopText>
-        <StyledFavTopMore>
+        <StyledTopText>즐겨찾는 게시판</StyledTopText>
+        <StyledFavTopMore onPress={goToBulletinList}>
           <StyledFavTopMoreText>
             더 보기 <AntDesign name="right" size={12} />
           </StyledFavTopMoreText>
