@@ -14,7 +14,9 @@ import HomeHCardList from "../../components/HomeHCardList";
 import HomeHCircleList from "../../components/HomeHCircle";
 import HomeSquareAd from "../../components/HomeSqaureAd";
 
-const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
+const Home: React.FC<HomeScreenProps> = ({
+  navigation: { setOptions, navigate },
+}) => {
   useEffect(() => {
     setOptions({
       headerStyle: {
@@ -36,7 +38,9 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
               <AntDesign name="search1" size={24} color="black" />
             </StyledHomeHeaderButtonText>
           </StyledHomeHeaderButton>
-          <StyledHomeHeaderButton>
+          <StyledHomeHeaderButton
+            onPress={() => navigate("Stack", { screen: "Mypage" })}
+          >
             <StyledHomeHeaderButtonText>
               <Ionicons name="person-outline" size={24} color="black" />
             </StyledHomeHeaderButtonText>
