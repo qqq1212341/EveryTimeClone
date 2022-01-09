@@ -24,7 +24,7 @@ const Tabs: React.FC = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name="home-outline"
-              size={28}
+              size={25}
               color={focused ? "black" : "gray"}
             />
           ),
@@ -39,7 +39,7 @@ const Tabs: React.FC = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <FontAwesome
               name="calendar"
-              size={28}
+              size={25}
               color={focused ? "black" : "gray"}
             />
           ),
@@ -54,7 +54,7 @@ const Tabs: React.FC = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <FontAwesome5
               name="list-alt"
-              size={28}
+              size={25}
               color={focused ? "black" : "gray"}
             />
           ),
@@ -69,7 +69,7 @@ const Tabs: React.FC = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name="ios-notifications-outline"
-              size={28}
+              size={25}
               color={focused ? "black" : "gray"}
             />
           ),
@@ -84,7 +84,7 @@ const Tabs: React.FC = () => {
           tabBarIcon: ({ focused, color, size }) => (
             <Ionicons
               name="ios-settings-outline"
-              size={28}
+              size={25}
               color={focused ? "black" : "gray"}
             />
           ),
@@ -98,7 +98,8 @@ const Tabs: React.FC = () => {
 
 export default Tabs;
 
-type TabNavigatorParamList = {
+export type TabNavigatorParamList = {
+  // undifined means no parameter
   Home: undefined;
   TimeTable: undefined;
   BulletinList: undefined;

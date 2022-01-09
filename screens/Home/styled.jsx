@@ -5,7 +5,6 @@ export const StyledHomeContainer = styled.ScrollView`
   background-color: white;
 `;
 
-export const StyledHomeText = styled.Text``;
 export const StyledHomeHeaderContainer = styled.View`
   padding: 15px 20px;
 `;

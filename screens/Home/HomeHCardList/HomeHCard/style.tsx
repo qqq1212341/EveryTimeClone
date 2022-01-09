@@ -7,7 +7,7 @@ interface BottomTextProps {
 export const StyledHCardContainer = styled.View`
   border-color: #d0d0d0;
   border-width: 0.5px;
-  border-radius: 20px;
+  border-radius: 18px;
   width: 280px;
   height: 180px;
   margin-right: 10px;

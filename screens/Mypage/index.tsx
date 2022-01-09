@@ -1,5 +1,4 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
 import Account from "./Account";
 import AppSetting from "./AppSettings";
 import Community from "./Community";

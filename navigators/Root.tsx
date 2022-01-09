@@ -1,7 +1,8 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
-import Stack from "./Stack";
-import Tabs from "./Tabs";
+import Stack, { StackNavigatorParamList } from "./Stack";
+import Tabs, { TabNavigatorParamList } from "./Tabs";
 
 const Nav = createNativeStackNavigator<RootNavigatorParamList>();
 
@@ -16,7 +17,7 @@ function Root() {
 
 export default Root;
 
-type RootNavigatorParamList = {
-  Tabs: undefined;
-  Stack: undefined;
+export type RootNavigatorParamList = {
+  Tabs: NavigatorScreenParams<TabNavigatorParamList>;
+  Stack: NavigatorScreenParams<StackNavigatorParamList>;
 };
