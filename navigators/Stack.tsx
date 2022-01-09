@@ -6,7 +6,7 @@ const Nav = createNativeStackNavigator<StackNavigatorParamList>();
 
 function Stack() {
   return (
-    <Nav.Navigator>
+    <Nav.Navigator screenOptions={{ headerTitle: "내 정보" }}>
       <Nav.Screen component={Mypage} name="Mypage" />
     </Nav.Navigator>
   );
