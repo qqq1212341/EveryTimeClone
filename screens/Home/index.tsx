@@ -10,14 +10,17 @@ import {
   StyledHomeHeaderTopText,
 } from "./styled";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
-import HomeHCardList from "../../components/HomeHCardList";
-import HomeHCircleList from "../../components/HomeHCircle";
-import HomeFavBulletin from "../../components/HomeFavBulletin";
-import HomeTrending from "../../components/HomeTrending";
-import HomeRectangleAd from "../../components/HomeRectangleAd";
-import HomeSquareAd from "../../components/HomeSquareAd";
+import HomeHCardList from "./HomeHCardList";
+import HomeHCircleList from "./HomeHCircle";
+import HomeRectangleAd from "./HomeRectangleAd";
+import HomeFavBulletin from "./HomeFavBulletin";
+import HomeTrending from "./HomeTrending";
+import HomeSquareAd from "./HomeSquareAd";
+import HomeHotBulletin from "./HomeHotBulletin";
 
-const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
+const Home: React.FC<HomeScreenProps> = ({
+  navigation: { setOptions, navigate },
+}) => {
   useEffect(() => {
     setOptions({
       headerStyle: {
@@ -39,7 +42,9 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
               <AntDesign name="search1" size={24} color="black" />
             </StyledHomeHeaderButtonText>
           </StyledHomeHeaderButton>
-          <StyledHomeHeaderButton>
+          <StyledHomeHeaderButton
+            onPress={() => navigate("Stack", { screen: "Mypage" })}
+          >
             <StyledHomeHeaderButtonText>
               <Ionicons name="person-outline" size={24} color="black" />
             </StyledHomeHeaderButtonText>
@@ -57,6 +62,7 @@ const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions } }) => {
       <HomeFavBulletin />
       <HomeTrending />
       <HomeSquareAd />
+      <HomeHotBulletin />
     </StyledHomeContainer>
   );
 };

@@ -2,12 +2,7 @@ import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect } from "react";
 import { StackNavigatorParamList } from "../../navigators/Stack";
-import {
-  DetailBulletinContainer,
-  DetailBulletinText,
-  DetailHeaderIconContainer,
-} from "./style";
-import { AntDesign } from "@expo/vector-icons";
+import { DetailBulletinContainer, DetailBulletinText } from "./style";
 
 interface DetailScreenProps {
   navigation: NativeStackNavigationProp<StackNavigatorParamList, "Detail">;
@@ -20,14 +15,10 @@ const DetailBulletin: React.FC<DetailScreenProps> = ({
     params: { bullentinName, index },
   },
 }) => {
+  // index가 100이면 hot 게시물을 Loading 해야 함!
   useEffect(() => {
     setOptions({
       title: bullentinName,
-      headerLeft: () => (
-        <DetailHeaderIconContainer onPress={goBack}>
-          <AntDesign name="arrowleft" size={24} color="black" />
-        </DetailHeaderIconContainer>
-      ),
     });
   }, []);
 

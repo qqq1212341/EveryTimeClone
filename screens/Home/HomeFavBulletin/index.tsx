@@ -5,17 +5,18 @@ import {
   StyledFavBottomPost,
   StyledFavBottomTextContainer,
   StyledFavBottomTitle,
-  StyledFavTopContainer,
-  StyledFavTopMore,
-  StyledFavTopMoreText,
 } from "./style";
-import { AntDesign } from "@expo/vector-icons";
+
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootNavigatorParamList } from "../../navigators/Root";
+import { RootNavigatorParamList } from "../../../navigators/Root";
 import { View } from "react-native";
-import { StyledBorderContainer, StyledTopText } from "../../Style/commonStyle";
+import {
+  StyledBorderContainer,
+  StyledTopText,
+} from "../../../Style/commonStyle";
+import TopContainer from "../../../components/TopContainer";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -91,7 +92,7 @@ const HomeFavBulletin: React.FC = () => {
             <StyledFavBottomPost>{post.title}</StyledFavBottomPost>
           </StyledFavBottomTextContainer>
           {post.isNew ? (
-            <StyledFavBottomImage source={require("../../img/nIcon.png")} />
+            <StyledFavBottomImage source={require("../../../img/nIcon.png")} />
           ) : (
             <View />
           )}
@@ -119,14 +120,11 @@ const HomeFavBulletin: React.FC = () => {
 
   return (
     <StyledBorderContainer>
-      <StyledFavTopContainer>
-        <StyledTopText>즐겨찾는 게시판</StyledTopText>
-        <StyledFavTopMore onPress={goToBulletinList}>
-          <StyledFavTopMoreText>
-            더 보기 <AntDesign name="right" size={12} />
-          </StyledFavTopMoreText>
-        </StyledFavTopMore>
-      </StyledFavTopContainer>
+      <TopContainer
+        text="즐겨찾는 게시판"
+        onPress={goToBulletinList}
+        isMore={true}
+      />
       {renderPostArray()}
     </StyledBorderContainer>
   );

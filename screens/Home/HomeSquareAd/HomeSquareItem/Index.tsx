@@ -27,7 +27,7 @@ const HomeSquareItem = () => {
       <StyledSqaureAdTop>
         <StyledSqaureAdProfile>
           <StyledSqaureAdProfileImage
-            source={require("../../../img/univStore.png")}
+            source={require("../../../../img/univStore.png")}
           />
           <StyledSqaureAdProfileText>학생복지스토어</StyledSqaureAdProfileText>
         </StyledSqaureAdProfile>
@@ -35,7 +35,7 @@ const HomeSquareItem = () => {
           <StyledSqaureAdMark>AD</StyledSqaureAdMark>
         </StyledSqaureAdMarkContainer>
       </StyledSqaureAdTop>
-      <StyledSqaureAdImage source={require("../../../img/macbook.png")} />
+      <StyledSqaureAdImage source={require("../../../../img/macbook.png")} />
       <StyledSqaureAdTitle>2022년 새학기엔 MacBook Pro</StyledSqaureAdTitle>
       <StyledSqaureAdDesc>
         프로는 역시 MacBook Pro, M1칩이 탑재된 MacBook Pro 13을 교육 할인으로
