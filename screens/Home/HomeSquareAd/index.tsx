@@ -3,7 +3,7 @@ import {
   SCREEN_HEIGHT,
   StyledBorderContainer,
   StyledTopText,
-} from "../../../Style/commonStyle";
+} from "../../../Common/commonStyle";
 import Swiper from "react-native-swiper";
 import HomeSquareItem from "./HomeSquareItem/Index";
 

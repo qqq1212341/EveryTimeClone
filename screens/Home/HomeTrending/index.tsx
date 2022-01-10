@@ -2,7 +2,7 @@ import React from "react";
 import {
   StyledBorderContainer,
   StyledTopText,
-} from "../../../Style/commonStyle";
+} from "../../../Common/commonStyle";
 
 import PostLarge from "../../../components/PostLarge";
 import TopContainer from "../../../components/TopContainer";

@@ -13,21 +13,37 @@ import {
 } from "./style";
 import LikeComment from "../LikeComment";
 
-const PostLarge = () => {
+interface postLargeProps {
+  postId: string;
+  name: string;
+  date: string;
+  title: string;
+  desc: string;
+  bulletinName: string;
+}
+
+const PostLarge: React.FC<postLargeProps> = ({
+  postId,
+  name,
+  date,
+  title,
+  desc,
+  bulletinName,
+}) => {
   // prop으로 id를 받아와서 클릭시 DetailPost로 이동하게 해야함.
   return (
     <StyledTrendingContainer>
       <StyledTrendingTop>
         <StyledTrendingTopLeft>
           <StyledTrendingTopProfile source={require("../../img/person.png")} />
-          <StyledTrendingTopWriter>익명</StyledTrendingTopWriter>
+          <StyledTrendingTopWriter>{name}</StyledTrendingTopWriter>
         </StyledTrendingTopLeft>
-        <StyledTrendingTopTimeline>121221313</StyledTrendingTopTimeline>
+        <StyledTrendingTopTimeline>{date}</StyledTrendingTopTimeline>
       </StyledTrendingTop>
-      <StyledTrendingMiddleTitle>안녕하세요</StyledTrendingMiddleTitle>
-      <StyledTrendingMiddleDesc>테스트</StyledTrendingMiddleDesc>
+      <StyledTrendingMiddleTitle>{title}</StyledTrendingMiddleTitle>
+      <StyledTrendingMiddleDesc>{desc}</StyledTrendingMiddleDesc>
       <StyledTrendingBottom>
-        <StyledTrendingBottomLeft>자유게시판</StyledTrendingBottomLeft>
+        <StyledTrendingBottomLeft>{bulletinName}</StyledTrendingBottomLeft>
         <LikeComment />
       </StyledTrendingBottom>
     </StyledTrendingContainer>
