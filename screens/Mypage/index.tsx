@@ -4,9 +4,9 @@ import { MypageLayout } from "./styled";
 import {
   SettingTitleText as Title,
   SettingItemText as Item,
-} from "../../Style/commonStyle";
+  StyledBorderContainer as OutlinedBox,
+} from "../../Common/commonStyle";
 import ModalSelector from "react-native-modal-selector";
-import { StyledBorderContainer as OutlinedBox } from "../../Style/commonStyle";
 
 export default function Mypage(props: any) {
   let index = 0;

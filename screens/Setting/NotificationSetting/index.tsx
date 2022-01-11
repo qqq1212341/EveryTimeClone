@@ -3,7 +3,7 @@ import {
   StyledBorderContainer as OutlinedBox,
   SettingTitleText as Title,
   SettingItemText as Item,
-} from "../../../Style/commonStyle";
+} from "../../../Common/commonStyle";
 import { Layout, SwitchContainer, Switch } from "./styled";
 function NotificationSetting() {
   return (
@@ -17,13 +17,13 @@ function NotificationSetting() {
           </Item>
         </SwitchContainer>
         <SwitchContainer>
-          <Item>내 글이 HOT 게시물이 되면 알리기</Item>
+          <Item>HOT 게시물이 되면 알리기</Item>
           <Item>
             <Switch />
           </Item>
         </SwitchContainer>
         <SwitchContainer>
-          <Item>내 글이 추천을 받으면 알리기</Item>
+          <Item>추천을 받으면 알리기</Item>
           <Item>
             <Switch />
           </Item>
@@ -38,7 +38,7 @@ function NotificationSetting() {
           </Item>
         </SwitchContainer>
         <SwitchContainer>
-          <Item>내 댓글이 추천을 받으면 알리기</Item>
+          <Item>추천을 받으면 알리기</Item>
           <Item>
             <Switch />
           </Item>
