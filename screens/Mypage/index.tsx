@@ -1,9 +1,16 @@
-import React from "react";
-import { TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import { TouchableOpacity, Text, Modal } from "react-native";
 import { MainpageLayout, Title, Item } from "./styled";
-import OutlinedBox from "../../components/OutlinedBox";
+import ModalSelector from "react-native-modal-selector";
+import { StyledBorderContainer as OutlinedBox } from "../../Style/commonStyle";
 
-export default function Mypage() {
+export default function Mypage(props: any) {
+  let index = 0;
+  const darkModeOptions = [
+    { key: index++, section: true, label: "다크 모드 설정" },
+    { key: index++, label: "켜기" },
+    { key: index++, label: "끄기" },
+  ];
   return (
     <MainpageLayout>
       {/* <Profile /> */}
@@ -30,9 +37,9 @@ export default function Mypage() {
       </OutlinedBox>
       <OutlinedBox>
         <Title>앱 설정</Title>
-        <TouchableOpacity>
+        <ModalSelector data={darkModeOptions}>
           <Item>다크 모드</Item>
-        </TouchableOpacity>
+        </ModalSelector>
         <TouchableOpacity>
           <Item>알림 설정</Item>
         </TouchableOpacity>

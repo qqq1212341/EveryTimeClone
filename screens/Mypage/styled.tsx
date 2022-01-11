@@ -7,11 +7,12 @@ export const MainpageLayout = styled.ScrollView`
 export const Title = styled.Text`
   font-size: 20px;
   font-weight: 700;
-  margin: 10px 20px;
+  margin: 20px 30px;
 `;
 
 export const Item = styled.Text`
   font-size: 15px;
-  margin: 10px 20px;
+  margin: 0px 30px;
+  margin-bottom: 18px
   font-weight: 500;
 `;
