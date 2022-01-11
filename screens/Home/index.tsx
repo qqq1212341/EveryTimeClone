@@ -1,5 +1,5 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledHomeContainer,
   StyledHomeHeaderBottomText,
@@ -17,17 +17,26 @@ import HomeFavBulletin from "./HomeFavBulletin";
 import HomeTrending from "./HomeTrending";
 import HomeSquareAd from "./HomeSquareAd";
 import HomeHotBulletin from "./HomeHotBulletin";
+import { NativeSyntheticEvent, RefreshControl } from "react-native";
+import { useRef } from "react";
+import { homeRefObject } from "../../Common/commonType";
+import { BORDER_COLOR } from "../../Common/commonStyle";
 
 const Home: React.FC<HomeScreenProps> = ({
   navigation: { setOptions, navigate },
 }) => {
+  const [refreshing, setRefreshing] = useState(false);
+  const [headerShown, setHeaderShown] = useState(false);
+
   useEffect(() => {
     setOptions({
       headerStyle: {
         height: 120,
-        shadowColor: "#acacac",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
+        shadowColor: headerShown ? "#acacac" : "#ffffff",
+        shadowOffset: headerShown
+          ? { width: 0, height: 2 }
+          : { width: 0, height: 0 },
+        shadowOpacity: headerShown ? 0.2 : 0,
       },
       headerLeft: () => (
         <StyledHomeHeaderContainer>
@@ -55,17 +64,53 @@ const Home: React.FC<HomeScreenProps> = ({
         </StyledHomeHeaderButtonContainer>
       ),
     });
-  }, []);
+  }, [headerShown]);
+  const wait = (timeout: number) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+  };
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    if (homeFavRef.current) {
+      homeFavRef.current.loadPostArray();
+    }
+    setRefreshing(false);
+  };
+
+  const homeFavRef = useRef<homeRefObject>(null);
+  const homeTrendingRef = useRef<homeRefObject>(null);
+  const homeHotRef = useRef<homeRefObject>(null);
+
+  const handleScroll = (e: any) => {
+    // e에 대한 typescript 처리 하기
+    if (e.nativeEvent.contentOffset.y > 0) {
+      setHeaderShown(true);
+    } else {
+      setHeaderShown(false);
+    }
+  };
+
   return (
     // stickheader로 header 따라 다녀야 함
-    <StyledHomeContainer>
+    <StyledHomeContainer
+      onScroll={handleScroll}
+      scrollEventThrottle={16}
+      refreshControl={
+        <RefreshControl
+          tintColor={BORDER_COLOR}
+          colors={[BORDER_COLOR]}
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      }
+    >
       <HomeHCardList />
       <HomeHCircleList />
       <HomeRectangleAd />
-      <HomeFavBulletin />
-      <HomeTrending />
+      <HomeFavBulletin ref={homeFavRef} />
+      <HomeTrending ref={homeTrendingRef} />
       <HomeSquareAd />
-      <HomeHotBulletin />
+      <HomeHotBulletin ref={homeHotRef} />
     </StyledHomeContainer>
   );
 };

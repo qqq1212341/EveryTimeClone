@@ -9,7 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "@react-native-async-storage/async-storage": "^1.15.14",
+    "@react-native-async-storage/async-storage": "^1.15.15",
     "@react-native-firebase/app": "^14.2.2",
     "@react-native-firebase/auth": "^14.2.2",
     "@react-native-firebase/firestore": "^14.2.2",
@@ -22,7 +22,8 @@
     "expo-splash-screen": "~0.14.1",
     "expo-status-bar": "~1.2.0",
     "expo-web-browser": "~10.1.0",
-    "react": "17.0.1",
+    "firebase": "^9.6.2",
+    "react": "^17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
     "react-native-modal-selector": "^2.1.0",

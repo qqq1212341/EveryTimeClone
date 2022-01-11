@@ -25,6 +25,10 @@ export interface postType {
   postId: string;
 }
 
+export interface homeRefObject {
+  loadPostArray: () => void;
+}
+
 export interface preferenceProps {
   myPostCommentNoti: boolean;
   myPostHOTNoti: boolean;
