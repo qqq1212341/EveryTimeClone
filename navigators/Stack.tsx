@@ -41,7 +41,7 @@ function Stack() {
 export default Stack;
 
 export type StackNavigatorParamList = {
-  Detail: { index: number; bullentinName: string };
+  Detail: { bulletinId: string; bullentinName: string };
   Mypage: undefined;
   NotificationSetting: undefined;
 };

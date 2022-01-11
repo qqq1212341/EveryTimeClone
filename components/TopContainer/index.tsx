@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledTopContainer, StyledTopMore, StyledTopMoreText } from "./style";
 import { AntDesign } from "@expo/vector-icons";
-import { StyledTopText } from "../../Style/commonStyle";
+import { StyledTopText } from "../../Common/commonStyle";
 import { GestureResponderEvent } from "react-native";
 
 interface TopContainerProps {

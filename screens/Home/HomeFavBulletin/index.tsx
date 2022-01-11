@@ -15,7 +15,7 @@ import { View } from "react-native";
 import {
   StyledBorderContainer,
   StyledTopText,
-} from "../../../Style/commonStyle";
+} from "../../../Common/commonStyle";
 import TopContainer from "../../../components/TopContainer";
 
 const userBulletinList = [
@@ -80,33 +80,37 @@ const HomeFavBulletin: React.FC = () => {
 
   const renderPostArray = () => {
     if (postArray) {
-      return postArray.map((post, index) => (
-        <StyledFavBottomContainer
-          onPress={() => goToDetail(index)}
-          key={`Bottom_${index}`}
-        >
-          <StyledFavBottomTextContainer>
-            <StyledFavBottomTitle>
-              {userBulletinList[index].name}
-            </StyledFavBottomTitle>
-            <StyledFavBottomPost>{post.title}</StyledFavBottomPost>
-          </StyledFavBottomTextContainer>
-          {post.isNew ? (
-            <StyledFavBottomImage source={require("../../../img/nIcon.png")} />
-          ) : (
-            <View />
-          )}
-        </StyledFavBottomContainer>
-      ));
+      return postArray.map((post, index) => {
+        const bullentinName = userBulletinList[index].name;
+        const bulletinId = userBulletinList[index].id;
+
+        return (
+          <StyledFavBottomContainer
+            onPress={() => goToDetail(bulletinId, bullentinName)}
+            key={`Bottom_${index}`}
+          >
+            <StyledFavBottomTextContainer>
+              <StyledFavBottomTitle>{bullentinName}</StyledFavBottomTitle>
+              <StyledFavBottomPost>{post.title}</StyledFavBottomPost>
+            </StyledFavBottomTextContainer>
+            {post.isNew ? (
+              <StyledFavBottomImage
+                source={require("../../../img/nIcon.png")}
+              />
+            ) : (
+              <View />
+            )}
+          </StyledFavBottomContainer>
+        );
+      });
     }
   };
 
-  const goToDetail = (index: number) => {
-    const bullentinName = userBulletinList[index].name;
+  const goToDetail = (bulletinId: string, bullentinName: string) => {
     navigation.navigate("Stack", {
       screen: "Detail",
       params: {
-        index,
+        bulletinId,
         bullentinName,
       },
     });

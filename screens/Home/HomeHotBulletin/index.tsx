@@ -4,7 +4,7 @@ import React from "react";
 import PostSmall from "../../../components/PostSmall";
 import TopContainer from "../../../components/TopContainer";
 import { RootNavigatorParamList } from "../../../navigators/Root";
-import { StyledBorderContainer } from "../../../Style/commonStyle";
+import { StyledBorderContainer } from "../../../Common/commonStyle";
 
 type DetailScreenProp = NativeStackNavigationProp<
   RootNavigatorParamList,
