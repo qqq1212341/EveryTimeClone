@@ -17,3 +17,16 @@ export const StyledTopText = styled.Text`
   font-size: 19px;
   margin-left: 15px;
 `;
+
+export const SettingTitleText = styled.Text`
+  font-size: 20px;
+  font-weight: 700;
+  margin: 20px 30px;
+`;
+
+export const SettingItemText = styled.Text`
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0px 30px;
+  margin-bottom: 18px;
+`;

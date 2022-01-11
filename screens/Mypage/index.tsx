@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { TouchableOpacity, Text, Modal } from "react-native";
-import { MainpageLayout, Title, Item } from "./styled";
+import { MypageLayout } from "./styled";
+import {
+  SettingTitleText as Title,
+  SettingItemText as Item,
+} from "../../Style/commonStyle";
 import ModalSelector from "react-native-modal-selector";
 import { StyledBorderContainer as OutlinedBox } from "../../Style/commonStyle";
 
@@ -12,7 +16,7 @@ export default function Mypage(props: any) {
     { key: index++, label: "끄기" },
   ];
   return (
-    <MainpageLayout>
+    <MypageLayout>
       {/* <Profile /> */}
       <OutlinedBox>
         <Title>계정</Title>
@@ -40,10 +44,12 @@ export default function Mypage(props: any) {
         <ModalSelector data={darkModeOptions}>
           <Item>다크 모드</Item>
         </ModalSelector>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("NotificationSetting")}
+        >
           <Item>알림 설정</Item>
         </TouchableOpacity>
       </OutlinedBox>
-    </MainpageLayout>
+    </MypageLayout>
   );
 }

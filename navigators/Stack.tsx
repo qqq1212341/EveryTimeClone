@@ -4,6 +4,7 @@ import DetailBulletin from "../screens/DetailBulletin";
 import Mypage from "../screens/Mypage";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
+import NotificationSetting from "../screens/Setting/NotificationSetting";
 
 const nativeStack = createNativeStackNavigator<StackNavigatorParamList>();
 
@@ -28,6 +29,11 @@ function Stack() {
         component={Mypage}
         options={{ headerTitle: "내 정보" }}
       />
+      <nativeStack.Screen
+        name="NotificationSetting"
+        component={NotificationSetting}
+        options={{ headerTitle: "알림 설정" }}
+      />
     </nativeStack.Navigator>
   );
 }
@@ -37,4 +43,5 @@ export default Stack;
 export type StackNavigatorParamList = {
   Detail: { index: number; bullentinName: string };
   Mypage: undefined;
+  NotificationSetting: undefined;
 };
