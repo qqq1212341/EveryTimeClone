@@ -24,3 +24,7 @@ export interface postType {
   Scrab: number;
   postId: string;
 }
+
+export interface homeRefObject {
+  loadPostArray: () => void;
+}

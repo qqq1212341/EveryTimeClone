@@ -49,7 +49,7 @@ const DetailBulletin: React.FC<DetailScreenProps> = ({
 
   function toDateTime(secs: number): string {
     var date = new Date(null);
-    date.setSeconds(secs); // specify value for SECONDS here
+    date.setSeconds(secs);
     return date.toISOString().substr(0, 10);
   }
 

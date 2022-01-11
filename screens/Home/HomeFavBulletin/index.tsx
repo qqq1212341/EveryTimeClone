@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Ref, useEffect, useState } from "react";
 import {
   StyledFavBottomContainer,
   StyledFavBottomImage,
@@ -12,11 +12,10 @@ import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { RootNavigatorParamList } from "../../../navigators/Root";
 import { View } from "react-native";
-import {
-  StyledBorderContainer,
-  StyledTopText,
-} from "../../../Common/commonStyle";
+import { StyledBorderContainer } from "../../../Common/commonStyle";
 import TopContainer from "../../../components/TopContainer";
+import { forwardRef, useImperativeHandle } from "react";
+import { homeRefObject } from "../../../Common/commonType";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -41,40 +40,47 @@ interface postArrayProperty {
   title: string;
 }
 
-const HomeFavBulletin: React.FC = () => {
+const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
   const [postArray, setPostArray] = useState<postArrayProperty[]>([]);
   const navigation = useNavigation<DetailScreenProp>();
 
-  useEffect(() => {
-    async function loadPostArray() {
-      const date = new Date();
-      const currenDate = Math.round(date.getTime() / 1000);
-      let PostArray: postArrayProperty[] = [];
-      await Promise.all(
-        userBulletinList.map(async (Bulletin): Promise<void> => {
-          const firstPost = await firestore()
-            .collection("Post")
-            .doc("NormalBulletin")
-            .collection(Bulletin.id)
-            .orderBy("Date", "desc")
-            .limit(1)
-            .get();
-          // 1 day == 86400
-          if (currenDate - firstPost.docs[0].data().Date.seconds < 86400) {
-            PostArray.push({
-              isNew: true,
-              title: firstPost.docs[0].data().Title,
-            });
-          } else {
-            PostArray.push({
-              isNew: false,
-              title: firstPost.docs[0].data().Title,
-            });
-          }
-        })
-      );
-      setPostArray(PostArray);
+  async function getFirebaseData(bulletinId: string) {
+    const firestorePost = await firestore()
+      .collection("Post")
+      .doc("NormalBulletin")
+      .collection(bulletinId)
+      .orderBy("Date", "desc")
+      .limit(1)
+      .get();
+    return firestorePost.docs[0].data();
+  }
+
+  const loadPostArray = async () => {
+    const date = new Date();
+    const currenDate = Math.round(date.getTime() / 1000);
+    let PostArray: postArrayProperty[] = [];
+
+    for (let bulletin of userBulletinList) {
+      const firstPost = await getFirebaseData(bulletin.id);
+      if (currenDate - firstPost.Date.seconds < 86400) {
+        PostArray.push({
+          isNew: true,
+          title: firstPost.Title,
+        });
+      } else {
+        PostArray.push({
+          isNew: false,
+          title: firstPost.Title,
+        });
+      }
     }
+
+    setPostArray(PostArray);
+  };
+
+  useImperativeHandle(ref, () => ({ loadPostArray }));
+
+  useEffect(() => {
     loadPostArray();
   }, []);
 
@@ -132,6 +138,6 @@ const HomeFavBulletin: React.FC = () => {
       {renderPostArray()}
     </StyledBorderContainer>
   );
-};
+});
 
 export default HomeFavBulletin;
