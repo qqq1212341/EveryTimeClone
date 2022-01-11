@@ -25,6 +25,9 @@ const Home: React.FC<HomeScreenProps> = ({
     setOptions({
       headerStyle: {
         height: 120,
+        shadowColor: "#acacac",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
       },
       headerLeft: () => (
         <StyledHomeHeaderContainer>
