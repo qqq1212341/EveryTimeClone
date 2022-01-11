@@ -33,7 +33,7 @@ function NotificationSetting() {
       }
     });
   }, []);
-  const [preference, setPreference] = useState({
+  const [preference, setPreference] = useState<preferenceProps>({
     myPostCommentNoti: true,
     myPostHOTNoti: true,
     myPostLikedNoti: true,
