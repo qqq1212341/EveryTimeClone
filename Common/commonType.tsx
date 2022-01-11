@@ -24,3 +24,11 @@ export interface postType {
   Scrab: number;
   postId: string;
 }
+
+export interface preferenceProps {
+  myPostCommentNoti: boolean;
+  myPostHOTNoti: boolean;
+  myPostLikedNoti: boolean;
+  myCommentReplyNoti: boolean;
+  myCommentLikedNoti: boolean;
+}
