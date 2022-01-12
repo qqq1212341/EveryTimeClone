@@ -5,6 +5,8 @@ import Mypage from "../screens/Mypage";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import NotificationSetting from "../screens/Setting/NotificationSetting";
+import DetailPost from "../screens/DetailPost";
+import { postType } from "../Common/commonType";
 
 const nativeStack = createNativeStackNavigator<StackNavigatorParamList>();
 
@@ -16,14 +18,23 @@ function Stack() {
         ({
           headerShown: true,
           headerLeft: () => (
-            <TouchableOpacity onPress={goBack}>
+            <TouchableOpacity style={{ marginLeft: 10 }} onPress={goBack}>
               <AntDesign name="arrowleft" size={24} color="black" />
             </TouchableOpacity>
           ),
         })
       }
     >
-      <nativeStack.Screen name="Detail" component={DetailBulletin} />
+      <nativeStack.Screen
+        name="DetailBulletin"
+        component={DetailBulletin}
+        options={{ headerTitle: "" }}
+      />
+      <nativeStack.Screen
+        name="DetailPost"
+        component={DetailPost}
+        options={{ headerTitle: "" }}
+      />
       <nativeStack.Screen
         name="Mypage"
         component={Mypage}
@@ -41,7 +52,8 @@ function Stack() {
 export default Stack;
 
 export type StackNavigatorParamList = {
-  Detail: { bulletinId: string; bullentinName: string };
+  DetailBulletin: { bulletinId: string; bulletinName: string };
+  DetailPost: { postData: postType; bulletinName: string };
   Mypage: undefined;
   NotificationSetting: undefined;
 };

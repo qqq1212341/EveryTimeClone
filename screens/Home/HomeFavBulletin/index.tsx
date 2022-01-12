@@ -6,16 +6,13 @@ import {
   StyledFavBottomTextContainer,
   StyledFavBottomTitle,
 } from "./style";
-
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootNavigatorParamList } from "../../../navigators/Root";
 import { View } from "react-native";
 import { StyledBorderContainer } from "../../../Common/commonStyle";
 import TopContainer from "../../../components/TopContainer";
 import { forwardRef, useImperativeHandle } from "react";
-import { homeRefObject } from "../../../Common/commonType";
+import { homeRefObject, NativeStackProps } from "../../../Common/commonType";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -30,11 +27,6 @@ const userBulletinList = [
   { name: "동아리·학회", id: "Circles" },
 ];
 
-type DetailScreenProp = NativeStackNavigationProp<
-  RootNavigatorParamList,
-  "Stack"
->;
-
 interface postArrayProperty {
   isNew: boolean;
   title: string;
@@ -42,7 +34,7 @@ interface postArrayProperty {
 
 const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
   const [postArray, setPostArray] = useState<postArrayProperty[]>([]);
-  const navigation = useNavigation<DetailScreenProp>();
+  const navigation = useNavigation<NativeStackProps>();
 
   async function getFirebaseData(bulletinId: string) {
     const firestorePost = await firestore()
@@ -87,16 +79,16 @@ const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
   const renderPostArray = () => {
     if (postArray) {
       return postArray.map((post, index) => {
-        const bullentinName = userBulletinList[index].name;
+        const bulletinName = userBulletinList[index].name;
         const bulletinId = userBulletinList[index].id;
 
         return (
           <StyledFavBottomContainer
-            onPress={() => goToDetail(bulletinId, bullentinName)}
+            onPress={() => goToDetail(bulletinId, bulletinName)}
             key={`Bottom_${index}`}
           >
             <StyledFavBottomTextContainer>
-              <StyledFavBottomTitle>{bullentinName}</StyledFavBottomTitle>
+              <StyledFavBottomTitle>{bulletinName}</StyledFavBottomTitle>
               <StyledFavBottomPost>{post.title}</StyledFavBottomPost>
             </StyledFavBottomTextContainer>
             {post.isNew ? (
@@ -112,12 +104,12 @@ const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
     }
   };
 
-  const goToDetail = (bulletinId: string, bullentinName: string) => {
+  const goToDetail = (bulletinId: string, bulletinName: string) => {
     navigation.navigate("Stack", {
-      screen: "Detail",
+      screen: "DetailBulletin",
       params: {
         bulletinId,
-        bullentinName,
+        bulletinName,
       },
     });
   };

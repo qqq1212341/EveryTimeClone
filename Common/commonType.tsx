@@ -1,3 +1,6 @@
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootNavigatorParamList } from "../navigators/Root";
+
 export interface commentType {
   Writer: string;
   Date: Date;
@@ -18,11 +21,12 @@ export interface postType {
   Date: dateType;
   Like: number;
   Name: string;
-  Title: string;
+  Title?: string;
   Desc: string;
   Pictures: string[];
   Scrab: number;
   postId: string;
+  stringDate?: string;
 }
 
 export interface homeRefObject {
@@ -36,3 +40,9 @@ export interface preferenceProps {
   myCommentReplyNoti: boolean;
   myCommentLikedNoti: boolean;
 }
+
+// use in useNavigator hook type
+export type NativeStackProps = NativeStackNavigationProp<
+  RootNavigatorParamList,
+  "Stack"
+>;

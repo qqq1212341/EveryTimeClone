@@ -4,7 +4,10 @@ import styled from "styled-components/native";
 export const SCREEN_WIDTH = Dimensions.get("window").width;
 export const SCREEN_HEIGHT = Dimensions.get("window").height;
 
+export const SCHOOL_NAME = "고려대 서울캠";
+
 export const BORDER_COLOR = "#d0d0d0";
+export const BACKGROUND_COLOR = "rgb(249, 249, 249)";
 
 export const StyledBorderContainer = styled.View`
   margin: 0px 10px;
