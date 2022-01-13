@@ -14,6 +14,7 @@ const PostSmall = () => {
       <StyledPostSmallTop>안녕하세요</StyledPostSmallTop>
       <StyledPostSmallBottomContainer>
         <StyledPostSmallDate>01/09</StyledPostSmallDate>
+        {/* Like.length로 고쳐야함 */}
         <LikeCommentScrab LikeNum={30} CommentNum={50} isScrabOn={false} />
       </StyledPostSmallBottomContainer>
     </StyledPostSmallContainer>

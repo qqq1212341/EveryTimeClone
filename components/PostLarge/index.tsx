@@ -61,6 +61,7 @@ const PostLarge: React.FC<postLargeProps> = ({ postData, bulletinName }) => {
       <StyledTrendingBottom>
         <StyledTrendingBottomLeft>{bulletinName}</StyledTrendingBottomLeft>
         <LikeCommentScrab
+          // Like.length로 고쳐야함
           LikeNum={postData.Like}
           CommentNum={postData.Comments.length}
           isScrabOn={false}

@@ -82,6 +82,7 @@ const DetailPost: React.FC<DetailPostProps> = ({
   }, []);
   // console.log(postData, bulletinName);
   return (
+    // Flatlist로 만들어야 함/
     <StyledDetailPostMain>
       <StyledDetailProfile>
         <StyledDetailProfileImage source={require("../../img/person.png")} />
@@ -93,9 +94,11 @@ const DetailPost: React.FC<DetailPostProps> = ({
       {Title && <StyledDetailMainTitle>{Title}</StyledDetailMainTitle>}
       <StyledDetailMainText>{Desc}</StyledDetailMainText>
       <LikeCommentScrab
+        // Like.length로 고쳐야함
         LikeNum={Like}
         CommentNum={Comments.length}
         isScrabOn={true}
+        // Scrab.length로 고쳐야함
         ScrabNum={Scrab}
       />
       <StyledDetailButtonContainer>
