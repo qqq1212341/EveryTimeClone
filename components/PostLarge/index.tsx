@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyledTrendingBottom,
   StyledTrendingBottomLeft,
@@ -11,40 +11,61 @@ import {
   StyledTrendingTopTimeline,
   StyledTrendingTopWriter,
 } from "./style";
-import LikeComment from "../LikeComment";
+import LikeComment from "../LikeCommentScrab";
+import { NativeStackProps, postType } from "../../Common/commonType";
+import { useNavigation } from "@react-navigation/native";
+import LikeCommentScrab from "../LikeCommentScrab";
 
 interface postLargeProps {
-  postId: string;
-  name: string;
-  date: string;
-  title: string;
-  desc: string;
+  postData: postType;
   bulletinName: string;
 }
 
-const PostLarge: React.FC<postLargeProps> = ({
-  postId,
-  name,
-  date,
-  title,
-  desc,
-  bulletinName,
-}) => {
-  // prop으로 id를 받아와서 클릭시 DetailPost로 이동하게 해야함.
+const PostLarge: React.FC<postLargeProps> = ({ postData, bulletinName }) => {
+  const navigation = useNavigation<NativeStackProps>();
+
+  // add string Date to postData
+  postData = { ...postData, stringDate: toDateTime(postData.Date.seconds) };
+
+  function toDateTime(secs: number): string {
+    var date = new Date(null);
+    date.setSeconds(secs);
+    return date.toISOString().substr(0, 10);
+  }
+
+  const goToDetailPost = () => {
+    navigation.navigate("Stack", {
+      screen: "DetailPost",
+      params: {
+        postData,
+        bulletinName,
+      },
+    });
+  };
+
   return (
-    <StyledTrendingContainer>
+    <StyledTrendingContainer onPress={goToDetailPost}>
       <StyledTrendingTop>
         <StyledTrendingTopLeft>
           <StyledTrendingTopProfile source={require("../../img/person.png")} />
-          <StyledTrendingTopWriter>{name}</StyledTrendingTopWriter>
+          <StyledTrendingTopWriter>{postData.Name}</StyledTrendingTopWriter>
         </StyledTrendingTopLeft>
-        <StyledTrendingTopTimeline>{date}</StyledTrendingTopTimeline>
+        <StyledTrendingTopTimeline>
+          {postData.stringDate}
+        </StyledTrendingTopTimeline>
       </StyledTrendingTop>
-      <StyledTrendingMiddleTitle>{title}</StyledTrendingMiddleTitle>
-      <StyledTrendingMiddleDesc>{desc}</StyledTrendingMiddleDesc>
+      {postData.Title && (
+        <StyledTrendingMiddleTitle>{postData.Title}</StyledTrendingMiddleTitle>
+      )}
+      <StyledTrendingMiddleDesc>{postData.Desc}</StyledTrendingMiddleDesc>
       <StyledTrendingBottom>
         <StyledTrendingBottomLeft>{bulletinName}</StyledTrendingBottomLeft>
-        <LikeComment />
+        <LikeCommentScrab
+          // Like.length로 고쳐야함
+          LikeNum={postData.Like}
+          CommentNum={postData.Comments.length}
+          isScrabOn={false}
+        />
       </StyledTrendingBottom>
     </StyledTrendingContainer>
   );

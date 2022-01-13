@@ -1,5 +1,5 @@
 import React from "react";
-import LikeComment from "../LikeComment";
+import LikeCommentScrab from "../LikeCommentScrab";
 import {
   StyledPostSmallBottomContainer,
   StyledPostSmallContainer,
@@ -14,7 +14,8 @@ const PostSmall = () => {
       <StyledPostSmallTop>안녕하세요</StyledPostSmallTop>
       <StyledPostSmallBottomContainer>
         <StyledPostSmallDate>01/09</StyledPostSmallDate>
-        <LikeComment />
+        {/* Like.length로 고쳐야함 */}
+        <LikeCommentScrab LikeNum={30} CommentNum={50} isScrabOn={false} />
       </StyledPostSmallBottomContainer>
     </StyledPostSmallContainer>
   );

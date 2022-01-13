@@ -12,7 +12,6 @@ import {
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import HomeHCardList from "./HomeHCardList";
 import HomeHCircleList from "./HomeHCircle";
-import HomeRectangleAd from "./HomeRectangleAd";
 import HomeFavBulletin from "./HomeFavBulletin";
 import HomeTrending from "./HomeTrending";
 import HomeSquareAd from "./HomeSquareAd";
@@ -21,6 +20,7 @@ import { NativeSyntheticEvent, RefreshControl } from "react-native";
 import { useRef } from "react";
 import { homeRefObject } from "../../Common/commonType";
 import { BORDER_COLOR } from "../../Common/commonStyle";
+import RectangleAd from "../../components/RectangleAd";
 
 const Home: React.FC<HomeScreenProps> = ({
   navigation: { setOptions, navigate },
@@ -106,7 +106,7 @@ const Home: React.FC<HomeScreenProps> = ({
     >
       <HomeHCardList />
       <HomeHCircleList />
-      <HomeRectangleAd />
+      <RectangleAd />
       <HomeFavBulletin ref={homeFavRef} />
       <HomeTrending ref={homeTrendingRef} />
       <HomeSquareAd />
