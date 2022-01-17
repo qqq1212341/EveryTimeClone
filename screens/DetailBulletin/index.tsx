@@ -1,7 +1,7 @@
 import { RouteProp } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import { postType } from "../../Common/commonType";
+import { postType } from "../../common/commonType";
 import { StackNavigatorParamList } from "../../navigators/Stack";
 import { DetailPostContainer } from "./style";
 import firestore from "@react-native-firebase/firestore";

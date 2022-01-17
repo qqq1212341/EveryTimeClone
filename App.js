@@ -6,6 +6,7 @@ import AppLoading from "expo-app-loading";
 import { setTestDeviceIDAsync } from "expo-ads-admob";
 import Login from "./screens/Login";
 import Auth from "./navigators/Auth";
+import { UserContext } from "./common/context";
 
 const whiteBackgroundTheme = {
   ...DefaultTheme,
@@ -18,6 +19,7 @@ const whiteBackgroundTheme = {
 export default function App() {
   const [ready, setReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState([]);
 
   const startLoading = async () => {
     await setTestDeviceIDAsync("EMULATOR");
@@ -26,6 +28,7 @@ export default function App() {
   useEffect(() => {
     auth().onAuthStateChanged((user) => {
       if (user) {
+        setUserData(user);
         setIsLoggedIn(true);
       } else {
         setIsLoggedIn(false);
@@ -44,8 +47,10 @@ export default function App() {
     );
   }
   return (
-    <NavigationContainer theme={whiteBackgroundTheme}>
-      {isLoggedIn ? <Root /> : <Auth />}
-    </NavigationContainer>
+    <UserContext.Provider value={userData}>
+      <NavigationContainer theme={whiteBackgroundTheme}>
+        {isLoggedIn ? <Root /> : <Auth />}
+      </NavigationContainer>
+    </UserContext.Provider>
   );
 }

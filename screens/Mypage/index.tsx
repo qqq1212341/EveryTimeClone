@@ -5,7 +5,7 @@ import {
   SettingTitleText as Title,
   SettingItemText as Item,
   StyledBorderContainer as OutlinedBox,
-} from "../../Common/commonStyle";
+} from "../../common/commonStyle";
 import ModalSelector from "react-native-modal-selector";
 
 export default function Mypage(props: any) {

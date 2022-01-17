@@ -2,8 +2,8 @@ import React, { forwardRef, Ref } from "react";
 import {
   StyledBorderContainer,
   StyledTopText,
-} from "../../../Common/commonStyle";
-import { homeRefObject } from "../../../Common/commonType";
+} from "../../../common/commonStyle";
+import { homeRefObject } from "../../../common/commonType";
 
 import PostLarge from "../../../components/PostLarge";
 import TopContainer from "../../../components/TopContainer";

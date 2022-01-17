@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { BORDER_COLOR } from "../../Common/commonStyle";
+import { BORDER_COLOR } from "../../common/commonStyle";
 
 export const DetailBulletinContainer = styled.FlatList``;
 export const DetailPostContainer = styled.View`

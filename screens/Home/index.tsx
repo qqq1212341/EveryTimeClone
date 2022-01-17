@@ -16,11 +16,12 @@ import HomeFavBulletin from "./HomeFavBulletin";
 import HomeTrending from "./HomeTrending";
 import HomeSquareAd from "./HomeSquareAd";
 import HomeHotBulletin from "./HomeHotBulletin";
-import { NativeSyntheticEvent, RefreshControl } from "react-native";
+import { RefreshControl } from "react-native";
 import { useRef } from "react";
-import { homeRefObject } from "../../Common/commonType";
-import { BORDER_COLOR } from "../../Common/commonStyle";
+import { homeRefObject } from "../../common/commonType";
+import { BORDER_COLOR } from "../../common/commonStyle";
 import RectangleAd from "../../components/RectangleAd";
+import { useUserContext } from "../../common/contest";
 
 const Home: React.FC<HomeScreenProps> = ({
   navigation: { setOptions, navigate },
@@ -65,9 +66,6 @@ const Home: React.FC<HomeScreenProps> = ({
       ),
     });
   }, [headerShown]);
-  const wait = (timeout: number) => {
-    return new Promise((resolve) => setTimeout(resolve, timeout));
-  };
 
   const onRefresh = () => {
     setRefreshing(true);
