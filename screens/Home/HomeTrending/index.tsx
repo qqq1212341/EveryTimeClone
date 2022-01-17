@@ -13,8 +13,8 @@ const HomeTrending = forwardRef((props: any, ref: Ref<homeRefObject>) => {
   return (
     <StyledBorderContainer>
       <TopContainer text="실시간 인기글" isMore={false} />
-      <PostLarge />
-      <PostLarge />
+      {/* <PostLarge />
+      <PostLarge /> */}
     </StyledBorderContainer>
   );
 });

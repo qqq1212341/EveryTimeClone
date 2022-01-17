@@ -1,11 +1,7 @@
 import styled from "styled-components/native";
 import { BORDER_COLOR } from "../../Common/commonStyle";
 
-export const DetailBulletinContainer = styled.View`
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-`;
+export const DetailBulletinContainer = styled.FlatList``;
 export const DetailPostContainer = styled.View`
   width: 95%;
   border-bottom-color: ${BORDER_COLOR};
