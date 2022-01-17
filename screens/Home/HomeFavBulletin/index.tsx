@@ -9,10 +9,10 @@ import {
 import firestore from "@react-native-firebase/firestore";
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
-import { StyledBorderContainer } from "../../../Common/commonStyle";
+import { StyledBorderContainer } from "../../../common/commonStyle";
 import TopContainer from "../../../components/TopContainer";
 import { forwardRef, useImperativeHandle } from "react";
-import { homeRefObject, NativeStackProps } from "../../../Common/commonType";
+import { homeRefObject, NativeStackProps } from "../../../common/commonType";
 
 const userBulletinList = [
   { name: "자유게시판", id: "Free" },
@@ -84,7 +84,7 @@ const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
 
         return (
           <StyledFavBottomContainer
-            onPress={() => goToDetail(bulletinId, bulletinName)}
+            onPress={() => goToDetailBulletin(bulletinId, bulletinName)}
             key={`Bottom_${index}`}
           >
             <StyledFavBottomTextContainer>
@@ -104,7 +104,7 @@ const HomeFavBulletin = forwardRef((props: any, ref: Ref<homeRefObject>) => {
     }
   };
 
-  const goToDetail = (bulletinId: string, bulletinName: string) => {
+  const goToDetailBulletin = (bulletinId: string, bulletinName: string) => {
     navigation.navigate("Stack", {
       screen: "DetailBulletin",
       params: {

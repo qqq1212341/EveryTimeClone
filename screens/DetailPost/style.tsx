@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { BACKGROUND_COLOR } from "../../Common/commonStyle";
+import { BACKGROUND_COLOR } from "../../common/commonStyle";
 
 export const StyledDetailPostMain = styled.View`
   padding: 19px;

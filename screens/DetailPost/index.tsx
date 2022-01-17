@@ -5,7 +5,7 @@ import LeftBackHeader from "../../components/LeftBackHeader";
 import RightItemHeader from "../../components/RightItemHeader";
 import { StackNavigatorParamList } from "../../navigators/Stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { BORDER_COLOR } from "../../Common/commonStyle";
+import { BORDER_COLOR } from "../../common/commonStyle";
 import {
   StyledDetailPostMain,
   StyledDetailProfile,

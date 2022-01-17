@@ -12,7 +12,7 @@ import {
   StyledTrendingTopWriter,
 } from "./style";
 import LikeComment from "../LikeCommentScrab";
-import { NativeStackProps, postType } from "../../Common/commonType";
+import { NativeStackProps, postType } from "../../common/commonType";
 import { useNavigation } from "@react-navigation/native";
 import LikeCommentScrab from "../LikeCommentScrab";
 

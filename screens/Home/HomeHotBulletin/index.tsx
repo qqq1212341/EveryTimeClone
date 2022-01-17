@@ -4,8 +4,8 @@ import React, { forwardRef, Ref } from "react";
 import PostSmall from "../../../components/PostSmall";
 import TopContainer from "../../../components/TopContainer";
 import { RootNavigatorParamList } from "../../../navigators/Root";
-import { StyledBorderContainer } from "../../../Common/commonStyle";
-import { homeRefObject } from "../../../Common/commonType";
+import { StyledBorderContainer } from "../../../common/commonStyle";
+import { homeRefObject } from "../../../common/commonType";
 
 type DetailScreenProp = NativeStackNavigationProp<
   RootNavigatorParamList,

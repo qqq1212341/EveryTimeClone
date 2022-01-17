@@ -6,7 +6,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import NotificationSetting from "../screens/Setting/NotificationSetting";
 import DetailPost from "../screens/DetailPost";
-import { postType } from "../Common/commonType";
+import { postType } from "../common/commonType";
 
 const nativeStack = createNativeStackNavigator<StackNavigatorParamList>();
 

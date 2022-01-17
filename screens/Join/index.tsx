@@ -9,7 +9,7 @@ import {
   StyledSubmitButton,
   StyledSubmitButtonText,
   StyledTextInput,
-} from "../../Common/commonStyle";
+} from "../../common/commonStyle";
 import { StyledLoginTopImage } from "../Login/style";
 import {
   StyledJoinContainer,
@@ -18,7 +18,7 @@ import {
   StyledJoinTextContainer,
   StyledJoinTouchable,
 } from "./style";
-import { userType } from "../../Common/commonType";
+import { userType } from "../../common/commonType";
 
 const YearSelect = [
   { label: "2022", value: "2022" },

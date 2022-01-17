@@ -14,7 +14,7 @@ import {
   StyledSubmitButton,
   StyledSubmitButtonText,
   StyledTextInput,
-} from "../../Common/commonStyle";
+} from "../../common/commonStyle";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { AuthNavigatorParamList } from "../../navigators/Auth";
 

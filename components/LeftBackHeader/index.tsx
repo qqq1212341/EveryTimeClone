@@ -8,7 +8,7 @@ import {
   StyledLeftBackTextGray,
 } from "./style";
 import { GestureResponderEvent } from "react-native";
-import { SCHOOL_NAME } from "../../Common/commonStyle";
+import { SCHOOL_NAME } from "../../common/commonStyle";
 
 const LeftBackHeader = ({
   bulletinName,
