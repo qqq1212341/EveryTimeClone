@@ -15,6 +15,10 @@ export const SCHOOL_NAME = "고려대 서울캠";
 export const BORDER_COLOR = "#d0d0d0";
 export const BACKGROUND_COLOR = "rgb(249, 249, 249)";
 export const MAIN_COLOR = "rgb(183, 56, 38)";
+export const GRAY_COLOR = "#acacac";
+export const LIKE_COLOR = "#ff3939";
+export const COMMENT_COLOR = "#8383f5";
+export const SCRAB_COLOR = "#cfda59";
 
 // border in Main
 

@@ -19,7 +19,7 @@ import HomeHotBulletin from "./HomeHotBulletin";
 import { RefreshControl } from "react-native";
 import { useRef } from "react";
 import { homeRefObject } from "../../common/commonType";
-import { BORDER_COLOR } from "../../common/commonStyle";
+import { BORDER_COLOR, GRAY_COLOR } from "../../common/commonStyle";
 import RectangleAd from "../../components/RectangleAd";
 import { useUserContext } from "../../common/contest";
 
@@ -33,7 +33,7 @@ const Home: React.FC<HomeScreenProps> = ({
     setOptions({
       headerStyle: {
         height: 120,
-        shadowColor: headerShown ? "#acacac" : "#ffffff",
+        shadowColor: headerShown ? GRAY_COLOR : "#ffffff",
         shadowOffset: headerShown
           ? { width: 0, height: 2 }
           : { width: 0, height: 0 },

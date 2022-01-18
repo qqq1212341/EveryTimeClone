@@ -15,6 +15,8 @@ import LikeComment from "../LikeCommentScrab";
 import { NativeStackProps, postType } from "../../common/commonType";
 import { useNavigation } from "@react-navigation/native";
 import LikeCommentScrab from "../LikeCommentScrab";
+import LeftProfile from "../LeftProfile";
+import { toDateTime } from "../../common/commonFunction";
 
 interface postLargeProps {
   postData: postType;
@@ -26,12 +28,6 @@ const PostLarge: React.FC<postLargeProps> = ({ postData, bulletinName }) => {
 
   // add string Date to postData
   postData = { ...postData, stringDate: toDateTime(postData.Date.seconds) };
-
-  function toDateTime(secs: number): string {
-    var date = new Date(null);
-    date.setSeconds(secs);
-    return date.toISOString().substr(0, 10);
-  }
 
   const goToDetailPost = () => {
     navigation.navigate("Stack", {
@@ -46,10 +42,7 @@ const PostLarge: React.FC<postLargeProps> = ({ postData, bulletinName }) => {
   return (
     <StyledTrendingContainer onPress={goToDetailPost}>
       <StyledTrendingTop>
-        <StyledTrendingTopLeft>
-          <StyledTrendingTopProfile source={require("../../img/person.png")} />
-          <StyledTrendingTopWriter>{postData.Name}</StyledTrendingTopWriter>
-        </StyledTrendingTopLeft>
+        <LeftProfile name={postData.Name} isBold={true} />
         <StyledTrendingTopTimeline>
           {postData.stringDate}
         </StyledTrendingTopTimeline>

@@ -1,19 +1,24 @@
 import styled from "styled-components/native";
+import {
+  COMMENT_COLOR,
+  LIKE_COLOR,
+  SCRAB_COLOR,
+} from "../../common/commonStyle";
 
 export const StyledTrendingBottomRight = styled.View`
   flex-direction: row;
 `;
 export const StyledTrendingBottomRightLike = styled.Text`
   font-size: 16px;
-  color: #ff3939;
+  color: ${LIKE_COLOR};
 `;
 export const StyledTrendingBottomRightComment = styled.Text`
   font-size: 16px;
   margin-left: 4px;
-  color: #8383f5;
+  color: ${COMMENT_COLOR};
 `;
 export const StyledTrendingBottomRightScrab = styled.Text`
   font-size: 16px;
   margin-left: 4px;
-  color: #cfda59;
+  color: ${SCRAB_COLOR};
 `;

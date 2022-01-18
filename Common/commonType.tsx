@@ -4,7 +4,7 @@ import { RootNavigatorParamList } from "../navigators/Root";
 // 댓글의 타입
 export interface commentType {
   Writer: string;
-  Date: Date;
+  Date: dateType | string;
   ReplyComment: commentType[];
   Like: number;
   Name: string;
@@ -12,7 +12,7 @@ export interface commentType {
 }
 
 // JS date object 타입
-interface dateType {
+export interface dateType {
   nanoseconds: number;
   seconds: number;
 }

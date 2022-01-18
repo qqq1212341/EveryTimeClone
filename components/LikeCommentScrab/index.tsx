@@ -6,6 +6,11 @@ import {
   StyledTrendingBottomRightScrab,
 } from "./style";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
+import {
+  COMMENT_COLOR,
+  LIKE_COLOR,
+  SCRAB_COLOR,
+} from "../../common/commonStyle";
 
 interface LikeCommentScrabProps {
   LikeNum: number;
@@ -23,16 +28,16 @@ const LikeCommentScrab: React.FC<LikeCommentScrabProps> = ({
   return (
     <StyledTrendingBottomRight>
       <StyledTrendingBottomRightLike>
-        <AntDesign name="like2" size={16} color="#ff3939" />
+        <AntDesign name="like2" size={16} color={LIKE_COLOR} />
         &nbsp;{LikeNum}
       </StyledTrendingBottomRightLike>
       <StyledTrendingBottomRightComment>
-        <EvilIcons name="comment" size={16} color="#8383f5" />
+        <EvilIcons name="comment" size={16} color={COMMENT_COLOR} />
         &nbsp;{CommentNum}
       </StyledTrendingBottomRightComment>
       {isScrabOn && (
         <StyledTrendingBottomRightScrab>
-          <AntDesign name="staro" size={16} color="#cfda59" />
+          <AntDesign name="staro" size={16} color={SCRAB_COLOR} />
           &nbsp;{ScrabNum}
         </StyledTrendingBottomRightScrab>
       )}
