@@ -1,5 +1,6 @@
-import React from "react";
-import { StyledNotificationContainer, StyledNotificationText } from "./styled";
+import React from 'react';
+
+import { StyledNotificationContainer, StyledNotificationText } from './styled';
 
 const Notification = () => {
   return (

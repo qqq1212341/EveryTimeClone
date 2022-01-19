@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 interface BottomTextProps {
   bottomTextColor: string;
@@ -27,7 +27,7 @@ export const StyledHCardInnerTopText = styled.Text`
 export const StyledHCardInnerBottomText = styled.Text<BottomTextProps>`
   font-weight: 500;
   font-size: 13px;
-  color: ${(props) => props.bottomTextColor ?? "black"};
+  color: ${props => props.bottomTextColor ?? 'black'};
 `;
 export const StyledHCardInnerButton = styled.TouchableOpacity`
   justify-content: center;

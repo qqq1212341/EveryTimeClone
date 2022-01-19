@@ -1,12 +1,10 @@
-import React from "react";
-import {
-  HomeHCircleContainer,
-  HomeHCircleIconContainer,
-  HomeHCircleText,
-} from "./style";
-import { Ionicons, AntDesign } from "@expo/vector-icons";
-import { Text, TouchableOpacity } from "react-native";
-import * as WebBrowser from "expo-web-browser";
+import React from 'react';
+
+import { AntDesign, Ionicons } from '@expo/vector-icons';
+import * as WebBrowser from 'expo-web-browser';
+import { Text, TouchableOpacity } from 'react-native';
+
+import { HomeHCircleContainer, HomeHCircleIconContainer, HomeHCircleText } from './style';
 
 interface HomeHCircleProps {
   iconStyle?: string;
@@ -15,15 +13,10 @@ interface HomeHCircleProps {
   address: string;
 }
 
-const HomeHCircle: React.FC<HomeHCircleProps> = ({
-  iconStyle,
-  icon,
-  title,
-  address,
-}) => {
+const HomeHCircle: React.FC<HomeHCircleProps> = ({ iconStyle, icon, title, address }) => {
   const onPressButton = async () => {
     await WebBrowser.openBrowserAsync(address, {
-      dismissButtonStyle: "close",
+      dismissButtonStyle: 'close',
       enableBarCollapsing: true,
     });
   };
@@ -32,10 +25,10 @@ const HomeHCircle: React.FC<HomeHCircleProps> = ({
     <HomeHCircleContainer>
       <TouchableOpacity onPress={onPressButton}>
         <HomeHCircleIconContainer>
-          {iconStyle === "Antd" ? (
-            <AntDesign name={icon} size={24} color="black" />
+          {iconStyle === 'Antd' ? (
+            <AntDesign name={icon} size={24} color='black' />
           ) : (
-            <Ionicons name={icon} size={24} color="black" />
+            <Ionicons name={icon} size={24} color='black' />
           )}
         </HomeHCircleIconContainer>
       </TouchableOpacity>

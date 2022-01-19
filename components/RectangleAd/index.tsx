@@ -1,7 +1,9 @@
-import { AdMobBanner } from "expo-ads-admob";
-import React from "react";
-import { Text } from "react-native";
-import { StyledRtAdContainer } from "./style";
+import React from 'react';
+
+import { AdMobBanner } from 'expo-ads-admob';
+import { Text } from 'react-native';
+
+import { StyledRtAdContainer } from './style';
 
 const RectangleAd = ({
   marginTop = 30,
@@ -16,8 +18,8 @@ const RectangleAd = ({
     <StyledRtAdContainer style={{ marginTop, marginLeft, marginRight }}>
       <AdMobBanner
         //  배너 사이즈 custom 하는 방법 알아보기..
-        bannerSize="banner"
-        adUnitID="ca-app-pub-3940256099942544/2934735716"
+        bannerSize='banner'
+        adUnitID='ca-app-pub-3940256099942544/2934735716'
       />
     </StyledRtAdContainer>
   );

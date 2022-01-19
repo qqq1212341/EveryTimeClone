@@ -1,5 +1,21 @@
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useRef } from 'react';
+
+import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
+import { NativeSyntheticEvent, RefreshControl } from 'react-native';
+
+import RectangleAd from '../../components/RectangleAd';
+
+import { BORDER_COLOR } from '../../Common/commonStyle';
+import { homeRefObject } from '../../Common/commonType';
+
+import HomeFavBulletin from './HomeFavBulletin';
+import HomeHCardList from './HomeHCardList';
+import HomeHCircleList from './HomeHCircle';
+import HomeHotBulletin from './HomeHotBulletin';
+import HomeSquareAd from './HomeSquareAd';
+import HomeTrending from './HomeTrending';
 import {
   StyledHomeContainer,
   StyledHomeHeaderBottomText,
@@ -8,23 +24,9 @@ import {
   StyledHomeHeaderButtonText,
   StyledHomeHeaderContainer,
   StyledHomeHeaderTopText,
-} from "./styled";
-import { AntDesign, Ionicons } from "@expo/vector-icons";
-import HomeHCardList from "./HomeHCardList";
-import HomeHCircleList from "./HomeHCircle";
-import HomeFavBulletin from "./HomeFavBulletin";
-import HomeTrending from "./HomeTrending";
-import HomeSquareAd from "./HomeSquareAd";
-import HomeHotBulletin from "./HomeHotBulletin";
-import { NativeSyntheticEvent, RefreshControl } from "react-native";
-import { useRef } from "react";
-import { homeRefObject } from "../../Common/commonType";
-import { BORDER_COLOR } from "../../Common/commonStyle";
-import RectangleAd from "../../components/RectangleAd";
+} from './styled';
 
-const Home: React.FC<HomeScreenProps> = ({
-  navigation: { setOptions, navigate },
-}) => {
+const Home: React.FC<HomeScreenProps> = ({ navigation: { setOptions, navigate } }) => {
   const [refreshing, setRefreshing] = useState(false);
   const [headerShown, setHeaderShown] = useState(false);
 
@@ -32,10 +34,8 @@ const Home: React.FC<HomeScreenProps> = ({
     setOptions({
       headerStyle: {
         height: 120,
-        shadowColor: headerShown ? "#acacac" : "#ffffff",
-        shadowOffset: headerShown
-          ? { width: 0, height: 2 }
-          : { width: 0, height: 0 },
+        shadowColor: headerShown ? '#acacac' : '#ffffff',
+        shadowOffset: headerShown ? { width: 0, height: 2 } : { width: 0, height: 0 },
         shadowOpacity: headerShown ? 0.2 : 0,
       },
       headerLeft: () => (
@@ -46,19 +46,17 @@ const Home: React.FC<HomeScreenProps> = ({
         </StyledHomeHeaderContainer>
       ),
       // 가운데 header는 hide
-      headerTitle: "",
+      headerTitle: '',
       headerRight: () => (
         <StyledHomeHeaderButtonContainer>
           <StyledHomeHeaderButton>
             <StyledHomeHeaderButtonText>
-              <AntDesign name="search1" size={24} color="black" />
+              <AntDesign name='search1' size={24} color='black' />
             </StyledHomeHeaderButtonText>
           </StyledHomeHeaderButton>
-          <StyledHomeHeaderButton
-            onPress={() => navigate("Stack", { screen: "Mypage" })}
-          >
+          <StyledHomeHeaderButton onPress={() => navigate('Stack', { screen: 'Mypage' })}>
             <StyledHomeHeaderButtonText>
-              <Ionicons name="person-outline" size={24} color="black" />
+              <Ionicons name='person-outline' size={24} color='black' />
             </StyledHomeHeaderButtonText>
           </StyledHomeHeaderButton>
         </StyledHomeHeaderButtonContainer>
@@ -66,7 +64,7 @@ const Home: React.FC<HomeScreenProps> = ({
     });
   }, [headerShown]);
   const wait = (timeout: number) => {
-    return new Promise((resolve) => setTimeout(resolve, timeout));
+    return new Promise(resolve => setTimeout(resolve, timeout));
   };
 
   const onRefresh = () => {
@@ -102,8 +100,7 @@ const Home: React.FC<HomeScreenProps> = ({
           refreshing={refreshing}
           onRefresh={onRefresh}
         />
-      }
-    >
+      }>
       <HomeHCardList />
       <HomeHCircleList />
       <RectangleAd />
@@ -117,4 +114,4 @@ const Home: React.FC<HomeScreenProps> = ({
 
 export default Home;
 
-type HomeScreenProps = BottomTabScreenProps<any, "Home">;
+type HomeScreenProps = BottomTabScreenProps<any, 'Home'>;

@@ -1,24 +1,26 @@
-import { RouteProp } from "@react-navigation/native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import React, { useEffect, useState } from "react";
-import { postType } from "../../Common/commonType";
-import { StackNavigatorParamList } from "../../navigators/Stack";
-import { DetailPostContainer } from "./style";
-import firestore from "@react-native-firebase/firestore";
-import { Alert, FlatList } from "react-native";
-import PostLarge from "../../components/PostLarge";
-import AppLoading from "expo-app-loading";
-import LeftBackHeader from "../../components/LeftBackHeader";
-import RectangleAd from "../../components/RectangleAd";
-import RightItemHeader from "../../components/RightItemHeader";
-import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import React, { useEffect, useState } from 'react';
+
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+import firestore from '@react-native-firebase/firestore';
+import { RouteProp } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import AppLoading from 'expo-app-loading';
+import { Alert, FlatList } from 'react-native';
+
+import LeftBackHeader from '../../components/LeftBackHeader';
+import PostLarge from '../../components/PostLarge';
+import RectangleAd from '../../components/RectangleAd';
+import RightItemHeader from '../../components/RightItemHeader';
+
+import { StackNavigatorParamList } from '../../navigators/Stack';
+
+import { postType } from '../../Common/commonType';
+
+import { DetailPostContainer } from './style';
 
 interface DetailBulletinProps {
-  navigation: NativeStackNavigationProp<
-    StackNavigatorParamList,
-    "DetailBulletin"
-  >;
-  route: RouteProp<StackNavigatorParamList, "DetailBulletin">;
+  navigation: NativeStackNavigationProp<StackNavigatorParamList, 'DetailBulletin'>;
+  route: RouteProp<StackNavigatorParamList, 'DetailBulletin'>;
 }
 
 const DetailBulletin: React.FC<DetailBulletinProps> = ({
@@ -31,22 +33,14 @@ const DetailBulletin: React.FC<DetailBulletinProps> = ({
   const [refreshing, setRefreshing] = useState<boolean>(false);
   useEffect(() => {
     setOptions({
-      headerLeft: () => (
-        <LeftBackHeader bulletinName={bulletinName} onPress={goBack} />
-      ),
+      headerLeft: () => <LeftBackHeader bulletinName={bulletinName} onPress={goBack} />,
       headerRight: () => (
         <RightItemHeader
           isFirstItem={true}
-          firstItemComponent={
-            <AntDesign name={"search1"} size={24} color="black" />
-          }
+          firstItemComponent={<AntDesign name={'search1'} size={24} color='black' />}
           // onPressFirstItem => search 스크린으로 이동하며 게시판의 params를 넘겨줘야함
           secondItemComponent={
-            <MaterialCommunityIcons
-              name="dots-vertical"
-              size={24}
-              color="black"
-            />
+            <MaterialCommunityIcons name='dots-vertical' size={24} color='black' />
           }
           // onPressSecondItem : table 열기
         />
@@ -59,20 +53,20 @@ const DetailBulletin: React.FC<DetailBulletinProps> = ({
   async function fetchPostData() {
     try {
       // postType으로 선언하면 doc.data()의 type을 지정해줘야 하기 때문에 any를 사용
-      let newPostArray: any = [];
+      const newPostArray: any = [];
       const postData = await firestore()
-        .collection("Post")
-        .doc("NormalBulletin")
+        .collection('Post')
+        .doc('NormalBulletin')
         .collection(bulletinId)
         .get();
-      postData.forEach((doc) => {
+      postData.forEach(doc => {
         let docData = doc.data();
         docData = { ...docData, postId: doc.id };
         newPostArray.push(docData);
       });
       setPostArray(newPostArray);
     } catch (error) {
-      Alert.alert("error", error);
+      Alert.alert('error', error);
     }
   }
 

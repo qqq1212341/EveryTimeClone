@@ -1,5 +1,6 @@
-import React from "react";
-import { StyledBulletinListContainer, StyledBulletinListText } from "./styled";
+import React from 'react';
+
+import { StyledBulletinListContainer, StyledBulletinListText } from './styled';
 
 const BulletinList = () => {
   return (

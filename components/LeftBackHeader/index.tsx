@@ -1,14 +1,17 @@
-import React from "react";
-import { AntDesign } from "@expo/vector-icons";
+import React from 'react';
+
+import { AntDesign } from '@expo/vector-icons';
+import { GestureResponderEvent } from 'react-native';
+
+import { SCHOOL_NAME } from '../../Common/commonStyle';
+
 import {
   StyledLeftBackButtonContainer,
   StyledLeftBackHeaderContainer,
   StyledLeftBackTextBlack,
   StyledLeftBackTextContainer,
   StyledLeftBackTextGray,
-} from "./style";
-import { GestureResponderEvent } from "react-native";
-import { SCHOOL_NAME } from "../../Common/commonStyle";
+} from './style';
 
 const LeftBackHeader = ({
   bulletinName,
@@ -20,7 +23,7 @@ const LeftBackHeader = ({
   return (
     <StyledLeftBackHeaderContainer>
       <StyledLeftBackButtonContainer onPress={onPress}>
-        <AntDesign name="arrowleft" size={24} color="black" />
+        <AntDesign name='arrowleft' size={24} color='black' />
       </StyledLeftBackButtonContainer>
       <StyledLeftBackTextContainer>
         <StyledLeftBackTextBlack>{bulletinName}</StyledLeftBackTextBlack>

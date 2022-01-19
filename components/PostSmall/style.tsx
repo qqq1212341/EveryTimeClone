@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const StyledPostSmallContainer = styled.TouchableOpacity`
   padding: 18px 19px;

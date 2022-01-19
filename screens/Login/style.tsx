@@ -1,5 +1,6 @@
-import styled from "styled-components/native";
-import { MAIN_COLOR, SCREEN_HEIGHT } from "../../Common/commonStyle";
+import styled from 'styled-components/native';
+
+import { MAIN_COLOR, SCREEN_HEIGHT } from '../../Common/commonStyle';
 
 export const StyledLoginContainer = styled.View`
   flex: 1;

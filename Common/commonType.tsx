@@ -1,5 +1,6 @@
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { RootNavigatorParamList } from "../navigators/Root";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import { RootNavigatorParamList } from '../navigators/Root';
 
 // 댓글의 타입
 export interface commentType {
@@ -56,7 +57,4 @@ export interface preferenceProps {
 }
 
 // use in useNavigator hook type
-export type NativeStackProps = NativeStackNavigationProp<
-  RootNavigatorParamList,
-  "Stack"
->;
+export type NativeStackProps = NativeStackNavigationProp<RootNavigatorParamList, 'Stack'>;

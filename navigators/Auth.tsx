@@ -1,32 +1,28 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
-import Login from "../screens/Login";
-import Join from "../screens/Join";
-import { AntDesign } from "@expo/vector-icons";
-import { Text, TouchableOpacity } from "react-native";
+import React from 'react';
+
+import { AntDesign } from '@expo/vector-icons';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Text, TouchableOpacity } from 'react-native';
+
+import Join from '../screens/Join';
+import Login from '../screens/Login';
 
 const nativeStack = createNativeStackNavigator<AuthNavigatorParamList>();
 
 function Auth() {
   return (
     <nativeStack.Navigator>
+      <nativeStack.Screen name='Login' component={Login} options={{ headerTitle: '' }} />
       <nativeStack.Screen
-        name="Login"
-        component={Login}
-        options={{ headerTitle: "" }}
-      />
-      <nativeStack.Screen
-        name="Join"
+        name='Join'
         component={Join}
         options={({ navigation: { goBack } }) => ({
           headerShown: true,
-          headerTitle: "",
-          headerLeft: () => (
-            <Text style={{ fontSize: 20, marginLeft: 10 }}>회원가입</Text>
-          ),
+          headerTitle: '',
+          headerLeft: () => <Text style={{ fontSize: 20, marginLeft: 10 }}>회원가입</Text>,
           headerRight: () => (
             <TouchableOpacity style={{ marginRight: 10 }} onPress={goBack}>
-              <AntDesign name="close" size={24} color="black" />
+              <AntDesign name='close' size={24} color='black' />
             </TouchableOpacity>
           ),
         })}

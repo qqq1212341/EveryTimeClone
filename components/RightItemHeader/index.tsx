@@ -1,6 +1,8 @@
-import React, { ReactElement } from "react";
-import { GestureResponderEvent } from "react-native";
-import { StyledItemIcon, StyledRightItemHeaderContainer } from "./style";
+import React, { ReactElement } from 'react';
+
+import { GestureResponderEvent } from 'react-native';
+
+import { StyledItemIcon, StyledRightItemHeaderContainer } from './style';
 
 interface RightItemHeaderProps {
   isFirstItem: boolean;
@@ -20,13 +22,9 @@ const RightItemHeader: React.FC<RightItemHeaderProps> = ({
   return (
     <StyledRightItemHeaderContainer>
       {isFirstItem && (
-        <StyledItemIcon onPress={onPressFirstItem}>
-          {firstItemComponent}
-        </StyledItemIcon>
+        <StyledItemIcon onPress={onPressFirstItem}>{firstItemComponent}</StyledItemIcon>
       )}
-      <StyledItemIcon onPress={onPressSecondItem}>
-        {secondItemComponent}
-      </StyledItemIcon>
+      <StyledItemIcon onPress={onPressSecondItem}>{secondItemComponent}</StyledItemIcon>
     </StyledRightItemHeaderContainer>
   );
 };

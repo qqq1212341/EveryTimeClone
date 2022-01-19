@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
+  SettingItemText as Item,
   StyledBorderContainer as OutlinedBox,
   SettingTitleText as Title,
-  SettingItemText as Item,
-} from "../../../Common/commonStyle";
-import { Layout, SwitchContainer, Switch } from "./styled";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { preferenceProps } from "../../../Common/commonType";
+} from '../../../Common/commonStyle';
+import { preferenceProps } from '../../../Common/commonType';
+
+import { Layout, Switch, SwitchContainer } from './styled';
 
 function NotificationSetting() {
   const handlePress = (option: keyof preferenceProps, value: boolean) => {
-    AsyncStorage.setItem("preference", JSON.stringify({...preference, [option]:value}));
+    AsyncStorage.setItem('preference', JSON.stringify({ ...preference, [option]: value }));
     setPreference(prev => ({
       ...prev,
       [option]: value,
@@ -18,7 +21,7 @@ function NotificationSetting() {
   };
 
   useEffect(() => {
-    AsyncStorage.getItem("preference").then(result => {
+    AsyncStorage.getItem('preference').then(result => {
       if (!result) {
         const preferencePreset = {
           myPostCommentNoti: true,
@@ -27,7 +30,7 @@ function NotificationSetting() {
           myCommentReplyNoti: true,
           myCommentLikedNoti: true,
         };
-        AsyncStorage.setItem("preference", JSON.stringify(preferencePreset));
+        AsyncStorage.setItem('preference', JSON.stringify(preferencePreset));
       } else {
         setPreference(JSON.parse(result));
       }
@@ -50,7 +53,7 @@ function NotificationSetting() {
           <Item>
             <Switch
               value={preference.myPostCommentNoti}
-              onValueChange={value => handlePress("myPostCommentNoti", value)}
+              onValueChange={value => handlePress('myPostCommentNoti', value)}
             />
           </Item>
         </SwitchContainer>
@@ -59,7 +62,7 @@ function NotificationSetting() {
           <Item>
             <Switch
               value={preference.myPostHOTNoti}
-              onValueChange={value => handlePress("myPostHOTNoti", value)}
+              onValueChange={value => handlePress('myPostHOTNoti', value)}
             />
           </Item>
         </SwitchContainer>
@@ -68,7 +71,7 @@ function NotificationSetting() {
           <Item>
             <Switch
               value={preference.myPostLikedNoti}
-              onValueChange={value => handlePress("myPostLikedNoti", value)}
+              onValueChange={value => handlePress('myPostLikedNoti', value)}
             />
           </Item>
         </SwitchContainer>
@@ -80,7 +83,7 @@ function NotificationSetting() {
           <Item>
             <Switch
               value={preference.myCommentReplyNoti}
-              onValueChange={value => handlePress("myCommentReplyNoti", value)}
+              onValueChange={value => handlePress('myCommentReplyNoti', value)}
             />
           </Item>
         </SwitchContainer>
@@ -89,7 +92,7 @@ function NotificationSetting() {
           <Item>
             <Switch
               value={preference.myCommentLikedNoti}
-              onValueChange={value => handlePress("myCommentLikedNoti", value)}
+              onValueChange={value => handlePress('myCommentLikedNoti', value)}
             />
           </Item>
         </SwitchContainer>

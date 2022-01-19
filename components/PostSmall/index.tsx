@@ -1,11 +1,12 @@
-import React from "react";
-import LikeCommentScrab from "../LikeCommentScrab";
+import React from 'react';
+
+import LikeCommentScrab from '../LikeCommentScrab';
 import {
   StyledPostSmallBottomContainer,
   StyledPostSmallContainer,
   StyledPostSmallDate,
   StyledPostSmallTop,
-} from "./style";
+} from './style';
 
 const PostSmall = () => {
   // prop으로 id를 받아와서 클릭시 DetailPost로 이동하게 해야함.

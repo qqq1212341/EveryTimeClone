@@ -1,14 +1,16 @@
-import React from "react";
+import React from 'react';
+
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
+
 import {
   StyledHCardContainer,
-  StyledHCardInnerTopText,
   StyledHCardInnerBottomText,
-  StyledHCardInnerContainer,
-  StyledHCardInnerRightContainer,
   StyledHCardInnerButton,
   StyledHCardInnerButtonText,
-} from "./style";
-import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
+  StyledHCardInnerContainer,
+  StyledHCardInnerRightContainer,
+  StyledHCardInnerTopText,
+} from './style';
 
 interface HomeHCardProps {
   icon: string;
@@ -28,7 +30,7 @@ const HomeHCard: React.FC<HomeHCardProps> = ({
   return (
     <StyledHCardContainer>
       <StyledHCardInnerContainer>
-        <MaterialCommunityIcons name={icon} size={36} color="black" />
+        <MaterialCommunityIcons name={icon} size={36} color='black' />
         <StyledHCardInnerRightContainer>
           <StyledHCardInnerTopText>{topText}</StyledHCardInnerTopText>
           <StyledHCardInnerBottomText bottomTextColor={bottomTextColor}>
@@ -38,7 +40,7 @@ const HomeHCard: React.FC<HomeHCardProps> = ({
             <StyledHCardInnerButton>
               <StyledHCardInnerButtonText>
                 {buttonText}&nbsp;
-                <AntDesign name="right" size={12} color="rgb(188, 188, 188)" />
+                <AntDesign name='right' size={12} color='rgb(188, 188, 188)' />
               </StyledHCardInnerButtonText>
             </StyledHCardInnerButton>
           )}

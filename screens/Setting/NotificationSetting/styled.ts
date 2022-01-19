@@ -1,4 +1,5 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
+
 export const SwitchContainer = styled.View`
   flex-direction: row;
   justify-content: space-between;

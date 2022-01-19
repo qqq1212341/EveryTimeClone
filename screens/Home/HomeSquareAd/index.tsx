@@ -1,11 +1,10 @@
-import React from "react";
-import {
-  SCREEN_HEIGHT,
-  StyledBorderContainer,
-  StyledTopText,
-} from "../../../Common/commonStyle";
-import Swiper from "react-native-swiper";
-import HomeSquareItem from "./HomeSquareItem/Index";
+import React from 'react';
+
+import Swiper from 'react-native-swiper';
+
+import { SCREEN_HEIGHT, StyledBorderContainer, StyledTopText } from '../../../Common/commonStyle';
+
+import HomeSquareItem from './HomeSquareItem/Index';
 
 const HomeSquareAd = () => {
   return (
@@ -18,11 +17,10 @@ const HomeSquareAd = () => {
           marginLeft: -10,
           marginRight: -10,
         }}
-        activeDotColor={"red"}
+        activeDotColor={'red'}
         dotStyle={{ width: 6, height: 6 }}
         activeDotStyle={{ width: 6, height: 6 }}
-        horizontal
-      >
+        horizontal>
         <HomeSquareItem />
         <HomeSquareItem />
         <HomeSquareItem />

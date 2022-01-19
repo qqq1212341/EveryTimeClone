@@ -1,19 +1,22 @@
-import React, { useState } from "react";
-import { TouchableOpacity, Text, Modal } from "react-native";
-import { MypageLayout } from "./styled";
+import React, { useState } from 'react';
+
+import { Modal, Text, TouchableOpacity } from 'react-native';
+import ModalSelector from 'react-native-modal-selector';
+
 import {
-  SettingTitleText as Title,
   SettingItemText as Item,
   StyledBorderContainer as OutlinedBox,
-} from "../../Common/commonStyle";
-import ModalSelector from "react-native-modal-selector";
+  SettingTitleText as Title,
+} from '../../Common/commonStyle';
+
+import { MypageLayout } from './styled';
 
 export default function Mypage(props: any) {
   let index = 0;
   const darkModeOptions = [
-    { key: index++, section: true, label: "다크 모드 설정" },
-    { key: index++, label: "켜기" },
-    { key: index++, label: "끄기" },
+    { key: index++, section: true, label: '다크 모드 설정' },
+    { key: index++, label: '켜기' },
+    { key: index++, label: '끄기' },
   ];
   return (
     <MypageLayout>
@@ -44,9 +47,7 @@ export default function Mypage(props: any) {
         <ModalSelector data={darkModeOptions}>
           <Item>다크 모드</Item>
         </ModalSelector>
-        <TouchableOpacity
-          onPress={() => props.navigation.navigate("NotificationSetting")}
-        >
+        <TouchableOpacity onPress={() => props.navigation.navigate('NotificationSetting')}>
           <Item>알림 설정</Item>
         </TouchableOpacity>
       </OutlinedBox>

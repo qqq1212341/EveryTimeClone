@@ -1,17 +1,20 @@
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import auth from "@react-native-firebase/auth";
-import React, { useEffect, useState } from "react";
-import Root from "./navigators/Root";
-import AppLoading from "expo-app-loading";
-import { setTestDeviceIDAsync } from "expo-ads-admob";
-import Login from "./screens/Login";
-import Auth from "./navigators/Auth";
+import React, { useEffect, useState } from 'react';
+
+import auth from '@react-native-firebase/auth';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { setTestDeviceIDAsync } from 'expo-ads-admob';
+import AppLoading from 'expo-app-loading';
+
+import Auth from './navigators/Auth';
+import Root from './navigators/Root';
+
+import Login from './screens/Login';
 
 const whiteBackgroundTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: "white",
+    background: 'white',
   },
 };
 
@@ -20,11 +23,11 @@ export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const startLoading = async () => {
-    await setTestDeviceIDAsync("EMULATOR");
+    await setTestDeviceIDAsync('EMULATOR');
   };
 
   useEffect(() => {
-    auth().onAuthStateChanged((user) => {
+    auth().onAuthStateChanged(user => {
       if (user) {
         setIsLoggedIn(true);
       } else {

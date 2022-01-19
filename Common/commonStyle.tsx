@@ -1,20 +1,21 @@
-import { Dimensions } from "react-native";
-import styled from "styled-components/native";
+import { Dimensions } from 'react-native';
+
+import styled from 'styled-components/native';
 
 // screen size
 
-export const SCREEN_WIDTH = Dimensions.get("window").width;
-export const SCREEN_HEIGHT = Dimensions.get("window").height;
+export const SCREEN_WIDTH = Dimensions.get('window').width;
+export const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 // school name
 
-export const SCHOOL_NAME = "고려대 서울캠";
+export const SCHOOL_NAME = '고려대 서울캠';
 
 // color list
 
-export const BORDER_COLOR = "#d0d0d0";
-export const BACKGROUND_COLOR = "rgb(249, 249, 249)";
-export const MAIN_COLOR = "rgb(183, 56, 38)";
+export const BORDER_COLOR = '#d0d0d0';
+export const BACKGROUND_COLOR = 'rgb(249, 249, 249)';
+export const MAIN_COLOR = 'rgb(183, 56, 38)';
 
 // border in Main
 
@@ -57,8 +58,8 @@ export const StyledSubmitButton = styled.TouchableOpacity<SubmitButtonProps>`
   width: 100%;
   border-radius: 20px;
   margin-bottom: 10px;
-  background-color: ${(props) =>
-    props.buttonBackgroundColor ? props.buttonBackgroundColor : "white"};
+  background-color: ${props =>
+    props.buttonBackgroundColor ? props.buttonBackgroundColor : 'white'};
 `;
 
 interface SubmitButtonTextProps {
@@ -68,7 +69,7 @@ interface SubmitButtonTextProps {
 export const StyledSubmitButtonText = styled.Text<SubmitButtonTextProps>`
   text-align: center;
   padding: 10px 0px;
-  color: ${(props) => props.buttonTextColor ?? "black"};
+  color: ${props => props.buttonTextColor ?? 'black'};
   font-size: 14px;
   font-weight: 700;
 `;
