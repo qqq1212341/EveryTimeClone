@@ -3,6 +3,7 @@ import { BACKGROUND_COLOR } from "../../common/commonStyle";
 
 export const StyledDetailPostMain = styled.View`
   padding: 19px;
+  padding-bottom: 0px;
 `;
 
 export const StyledDetailProfile = styled.View`

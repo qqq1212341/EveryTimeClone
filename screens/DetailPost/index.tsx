@@ -140,7 +140,7 @@ const DetailPost: React.FC<DetailPostProps> = ({
         // LikeNum : Like => Like.length
         <Comment
           Content={item.Content}
-          Date={toDateTime(item.Date.seconds)}
+          Date={item.Date}
           Like={item.Like}
           Name={item.Name}
           ReplyComment={item.ReplyComment}

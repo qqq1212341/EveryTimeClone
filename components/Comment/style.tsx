@@ -8,7 +8,9 @@ import {
 } from "../../common/commonStyle";
 
 export const StyledCommentContainer = styled.View`
-  padding: 10px 15px;
+  width: 95%;
+  margin: 0% 2.5%;
+  padding: 10px
   border-bottom-width: 1px;
   border-bottom-color: ${BORDER_COLOR};
 `;
@@ -62,5 +64,15 @@ export const StyledLikeText = styled.Text`
 `;
 
 export const StyledReplyIcon = styled.View`
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 20px;
+`;
+
+export const StyledReplyContainer = styled.View`
+  flex-direction: row;
+`;
+
+export const StyledReply = styled.View`
+  flex: 1;
+  margin-left: -5px;
 `;

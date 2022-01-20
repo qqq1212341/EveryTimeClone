@@ -10,6 +10,8 @@ import {
   StyledIconContainer,
   StyledLikeCommentContainer,
   StyledLikeText,
+  StyledReply,
+  StyledReplyContainer,
   StyledReplyIcon,
   StyledVerticalDivider,
 } from "./style";
@@ -17,6 +19,7 @@ import { AntDesign, EvilIcons, Entypo, Feather } from "@expo/vector-icons";
 import { GRAY_COLOR, LIKE_COLOR } from "../../common/commonStyle";
 import { commentType, dateType } from "../../common/commonType";
 import { View } from "react-native";
+import { toDateTime } from "../../common/commonFunction";
 
 const Comment: React.FC<commentType> = ({
   Content,
@@ -29,7 +32,7 @@ const Comment: React.FC<commentType> = ({
   const renderComment = (
     renderName: string,
     renderContent: string,
-    renderDate: string | dateType,
+    renderDate: dateType,
     renderLike: array
   ) => (
     <StyledCommentContainer>
@@ -51,7 +54,9 @@ const Comment: React.FC<commentType> = ({
       </StyledCommentTop>
       <StyledCommnetText>{renderContent}</StyledCommnetText>
       <StyledBottomContainer>
-        <StyledCommnetTimeLine>{renderDate}</StyledCommnetTimeLine>
+        <StyledCommnetTimeLine>
+          {toDateTime(renderDate.seconds)}
+        </StyledCommnetTimeLine>
         <StyledLikeText>
           <AntDesign name="like2" size={12} color={LIKE_COLOR} />
           &nbsp;{renderLike}
@@ -60,24 +65,28 @@ const Comment: React.FC<commentType> = ({
     </StyledCommentContainer>
   );
 
-  const renderReplyCommnet = () => {
+  const renderReplyComment = (ReplyComment: commentType[]) => {
     if (ReplyComment.length > 0) {
-      ReplyComment.map((item, index) => (
-        <View key={index}>
-          <StyledReplyIcon>
-            <Feather name="corner-down-right" size={24} color="black" />
-          </StyledReplyIcon>
-          {renderComment(item.Name, item.Content, item.Date, item.Like)}
-        </View>
-      ));
+      return ReplyComment.map((item: commentType, index: number) => {
+        return (
+          <StyledReplyContainer key={index}>
+            <StyledReplyIcon>
+              <Feather name="corner-down-right" size={16} color={GRAY_COLOR} />
+            </StyledReplyIcon>
+            <StyledReply>
+              {renderComment(item.Name, item.Content, item.Date, item.Like)}
+            </StyledReply>
+          </StyledReplyContainer>
+        );
+      });
     }
   };
 
   return (
-    <>
+    <View style={{ flex: 1 }}>
       {renderComment(Name, Content, Date, Like)}
-      {renderReplyCommnet()}
-    </>
+      {renderReplyComment(ReplyComment)}
+    </View>
   );
 };
 
