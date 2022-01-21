@@ -2,17 +2,14 @@ import styled from "styled-components/native";
 import {
   BACKGROUND_COLOR,
   BORDER_COLOR,
+  DARK_BACKGROUND_COLOR,
   GRAY_COLOR,
   LIKE_COLOR,
   SCREEN_HEIGHT,
 } from "../../common/commonStyle";
 
 export const StyledCommentContainer = styled.View`
-  width: 95%;
-  margin: 0% 2.5%;
-  padding: 10px
-  border-bottom-width: 1px;
-  border-bottom-color: ${BORDER_COLOR};
+  padding: 10px;
 `;
 
 export const StyledCommentTop = styled.View`
@@ -20,9 +17,10 @@ export const StyledCommentTop = styled.View`
   justify-content: space-between;
 `;
 
-export const StyledLikeCommentContainer = styled.View`
+export const StyledLikeCommentContainer = styled.View<{ isReply: boolean }>`
   flex-direction: row;
-  background-color: ${BACKGROUND_COLOR};
+  background-color: ${(props) =>
+    props.isReply ? DARK_BACKGROUND_COLOR : BACKGROUND_COLOR}
   align-items: center;
   border-radius: 5px;
 `;
@@ -74,5 +72,7 @@ export const StyledReplyContainer = styled.View`
 
 export const StyledReply = styled.View`
   flex: 1;
-  margin-left: -5px;
+  background-color: ${BACKGROUND_COLOR};
+  border-radius: 10px;
+  margin-bottom: 10px;
 `;

@@ -16,7 +16,12 @@ import {
   StyledVerticalDivider,
 } from "./style";
 import { AntDesign, EvilIcons, Entypo, Feather } from "@expo/vector-icons";
-import { GRAY_COLOR, LIKE_COLOR } from "../../common/commonStyle";
+import {
+  BACKGROUND_COLOR,
+  BORDER_COLOR,
+  GRAY_COLOR,
+  LIKE_COLOR,
+} from "../../common/commonStyle";
 import { commentType, dateType } from "../../common/commonType";
 import { View } from "react-native";
 import { toDateTime } from "../../common/commonFunction";
@@ -33,16 +38,21 @@ const Comment: React.FC<commentType> = ({
     renderName: string,
     renderContent: string,
     renderDate: dateType,
-    renderLike: array
+    renderLike: array,
+    isReply: boolean
   ) => (
     <StyledCommentContainer>
       <StyledCommentTop>
         <LeftProfile name={renderName} isBold={false} />
-        <StyledLikeCommentContainer>
-          <StyledIconContainer>
-            <EvilIcons name="comment" size={20} color={GRAY_COLOR} />
-          </StyledIconContainer>
-          <StyledVerticalDivider />
+        <StyledLikeCommentContainer isReply={isReply}>
+          {!isReply && (
+            <>
+              <StyledIconContainer>
+                <EvilIcons name="comment" size={20} color={GRAY_COLOR} />
+              </StyledIconContainer>
+              <StyledVerticalDivider />
+            </>
+          )}
           <StyledIconContainer>
             <AntDesign name="like2" size={16} color={GRAY_COLOR} />
           </StyledIconContainer>
@@ -74,7 +84,13 @@ const Comment: React.FC<commentType> = ({
               <Feather name="corner-down-right" size={16} color={GRAY_COLOR} />
             </StyledReplyIcon>
             <StyledReply>
-              {renderComment(item.Name, item.Content, item.Date, item.Like)}
+              {renderComment(
+                item.Name,
+                item.Content,
+                item.Date,
+                item.Like,
+                true
+              )}
             </StyledReply>
           </StyledReplyContainer>
         );
@@ -83,8 +99,16 @@ const Comment: React.FC<commentType> = ({
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      {renderComment(Name, Content, Date, Like)}
+    <View
+      style={{
+        flex: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: BORDER_COLOR,
+        marginLeft: 10,
+        marginRight: 10,
+      }}
+    >
+      {renderComment(Name, Content, Date, Like, false)}
       {renderReplyComment(ReplyComment)}
     </View>
   );
